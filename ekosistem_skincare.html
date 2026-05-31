@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ekosistem Bisnis Skincare — Bahan Diskusi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F7F5F0;
+  --bg2: #EEEAE2;
+  --bg3: #ffffff;
+  --ink: #1A1814;
+  --ink2: #5A5650;
+  --ink3: #9A958E;
+  --accent: #C85A2A;
+  --accent2: #E8956A;
+  --gold: #D4A24A;
+  --teal: #2A7A6A;
+  --blue: #2A5A8A;
+  --border: rgba(26,24,20,0.10);
+  --border2: rgba(26,24,20,0.18);
+  --r: 14px;
+  --r-sm: 8px;
+  --shadow: 0 2px 12px rgba(26,24,20,0.08);
+  --shadow-lg: 0 8px 32px rgba(26,24,20,0.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* HEADER */
+.hero{
+  background:var(--ink);
+  color:#fff;
+  padding:3rem 1.5rem 2.5rem;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;inset:0;
+  background:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(255,255,255,0.02) 40px,rgba(255,255,255,0.02) 41px);
+}
+.hero-tag{
+  display:inline-block;
+  font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  background:rgba(200,90,42,0.25);color:var(--accent2);
+  padding:4px 14px;border-radius:20px;margin-bottom:1rem;
+  border:1px solid rgba(200,90,42,0.3);
+  position:relative;
+}
+.hero h1{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(2rem,6vw,3.2rem);
+  font-weight:400;line-height:1.1;
+  position:relative;margin-bottom:.75rem;
+}
+.hero h1 em{color:var(--accent2);font-style:italic}
+.hero p{
+  font-size:clamp(14px,3.5vw,16px);
+  color:rgba(255,255,255,0.6);
+  max-width:520px;margin:0 auto 1.5rem;
+  line-height:1.6;position:relative;
+}
+.hero-meta{
+  display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;
+  font-size:12px;color:rgba(255,255,255,0.4);position:relative;
+}
+.hero-meta span{display:flex;align-items:center;gap:5px}
+
+/* NAV PILLS */
+.nav-strip{
+  background:var(--bg3);
+  border-bottom:1px solid var(--border);
+  position:sticky;top:0;z-index:100;
+  overflow-x:auto;scrollbar-width:none;
+}
+.nav-strip::-webkit-scrollbar{display:none}
+.nav-inner{
+  display:flex;gap:0;
+  min-width:max-content;
+  padding:0 1rem;
+}
+.nav-btn{
+  padding:.75rem 1.25rem;
+  font-size:13px;font-weight:500;
+  color:var(--ink2);
+  border:none;background:none;cursor:pointer;
+  border-bottom:2px solid transparent;
+  white-space:nowrap;transition:all .2s;
+  font-family:'Plus Jakarta Sans',sans-serif;
+}
+.nav-btn:hover{color:var(--ink)}
+.nav-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* MAIN LAYOUT */
+.main{max-width:900px;margin:0 auto;padding:1.5rem 1rem 4rem}
+
+/* SECTION */
+.section{display:none;animation:fadeIn .25s ease}
+.section.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+.section-header{margin-bottom:1.5rem}
+.section-num{
+  font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink3);margin-bottom:.3rem;
+}
+.section-title{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(1.4rem,4vw,2rem);font-weight:400;
+  color:var(--ink);line-height:1.2;margin-bottom:.5rem;
+}
+.section-desc{font-size:14px;color:var(--ink2);line-height:1.7;max-width:600px}
+
+/* CARDS GRID */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));
+  gap:12px;margin-bottom:1.5rem;
+}
+.card{
+  background:var(--bg3);
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  padding:1.1rem 1.2rem;
+  cursor:pointer;
+  transition:all .2s;
+  position:relative;overflow:hidden;
+}
+.card::after{
+  content:'';position:absolute;
+  top:0;left:0;right:0;height:3px;
+  background:var(--card-accent,var(--accent));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .25s ease;
+}
+.card:hover::after,.card.open::after{transform:scaleX(1)}
+.card:hover{border-color:var(--border2);box-shadow:var(--shadow);transform:translateY(-2px)}
+.card.open{border-color:var(--card-accent,var(--accent));box-shadow:var(--shadow-lg)}
+.card-icon{
+  width:38px;height:38px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:.75rem;font-size:18px;
+  background:var(--card-bg,#F5EDE8);
+  color:var(--card-accent,var(--accent));
+}
+.card h3{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.card p{font-size:12px;color:var(--ink3);line-height:1.5}
+.card-arrow{
+  position:absolute;top:1rem;right:1rem;
+  font-size:16px;color:var(--ink3);
+  transition:transform .2s;
+}
+.card.open .card-arrow{transform:rotate(90deg);color:var(--card-accent,var(--accent))}
+
+/* DETAIL DRAWER */
+.detail{
+  background:var(--bg3);
+  border:1px solid var(--border2);
+  border-radius:var(--r);
+  margin-bottom:1.5rem;
+  overflow:hidden;
+  animation:slideDown .25s ease;
+}
+@keyframes slideDown{from{opacity:0;max-height:0}to{opacity:1;max-height:2000px}}
+.detail-header{
+  padding:1.1rem 1.3rem .75rem;
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;
+}
+.detail-header h3{font-size:15px;font-weight:600;color:var(--ink)}
+.detail-close{
+  background:var(--bg);border:1px solid var(--border);
+  border-radius:6px;padding:3px 10px;font-size:12px;
+  color:var(--ink2);cursor:pointer;white-space:nowrap;
+  font-family:'Plus Jakarta Sans',sans-serif;flex-shrink:0;
+}
+.detail-close:hover{background:var(--bg2)}
+.detail-body{padding:1rem 1.3rem 1.3rem}
+.items-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));
+  gap:10px;margin-bottom:1rem;
+}
+.d-item{
+  background:var(--bg);
+  border-radius:var(--r-sm);
+  padding:.85rem 1rem;
+  border:1px solid var(--border);
+}
+.d-item-label{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);margin-bottom:4px}
+.d-item-val{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:4px}
+.d-item-note{font-size:12px;color:var(--ink2);line-height:1.5}
+.badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:.75rem}
+.badge{
+  display:inline-block;font-size:11px;font-weight:600;
+  padding:3px 10px;border-radius:20px;
+}
+.badge-orange{background:#FDEEDE;color:#8A4010}
+.badge-green{background:#E6F4ED;color:#1A5A35}
+.badge-blue{background:#E4EEF8;color:#1A3A6A}
+.badge-teal{background:#E2F2EE;color:#1A5248}
+.badge-gold{background:#FBF1DD;color:#7A5A10}
+
+/* FLOW DIAGRAM */
+.flow{margin:1.5rem 0}
+.flow-step{
+  display:flex;gap:12px;align-items:flex-start;
+  padding:.85rem 1rem;
+  background:var(--bg3);
+  border:1px solid var(--border);
+  border-radius:var(--r-sm);
+  margin-bottom:8px;
+  transition:all .2s;
+}
+.flow-step:hover{border-color:var(--border2);box-shadow:var(--shadow)}
+.flow-num{
+  width:28px;height:28px;border-radius:50%;
+  background:var(--accent);color:#fff;
+  font-size:12px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:1px;
+}
+.flow-num.gold{background:var(--gold)}
+.flow-num.teal{background:var(--teal)}
+.flow-num.blue{background:var(--blue)}
+.flow-content h4{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:2px}
+.flow-content p{font-size:12px;color:var(--ink2);line-height:1.5}
+.flow-connector{
+  text-align:center;color:var(--ink3);
+  font-size:16px;margin:-2px 0;
+  padding-left:14px;
+}
+
+/* MODAL TABLE */
+.modal-table{width:100%;border-collapse:collapse;font-size:13px;margin:1rem 0}
+.modal-table th{
+  background:var(--ink);color:#fff;
+  padding:.6rem .85rem;text-align:left;
+  font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+}
+.modal-table th:first-child{border-radius:var(--r-sm) 0 0 0}
+.modal-table th:last-child{border-radius:0 var(--r-sm) 0 0}
+.modal-table td{
+  padding:.65rem .85rem;
+  border-bottom:1px solid var(--border);
+  color:var(--ink);line-height:1.4;
+  vertical-align:top;
+}
+.modal-table tr:last-child td{border-bottom:none}
+.modal-table tr:nth-child(even) td{background:var(--bg)}
+.modal-table tr.highlight td{background:#FBF1DD;font-weight:600}
+
+/* SUMMARY CARD */
+.summary-card{
+  background:var(--ink);color:#fff;
+  border-radius:var(--r);
+  padding:1.5rem;
+  margin:1.5rem 0;
+}
+.summary-card h3{
+  font-family:'DM Serif Display',serif;
+  font-size:1.4rem;font-weight:400;
+  margin-bottom:.5rem;color:#fff;
+}
+.summary-card p{font-size:13px;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:1rem}
+.summary-stats{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+  gap:10px;
+}
+.stat{background:rgba(255,255,255,0.08);border-radius:10px;padding:.75rem 1rem}
+.stat-val{font-size:1.3rem;font-weight:700;color:var(--accent2);margin-bottom:2px}
+.stat-label{font-size:11px;color:rgba(255,255,255,0.5)}
+
+/* LEVERAGE VISUAL */
+.leverage-stack{margin:1rem 0}
+.lev-item{
+  display:flex;align-items:center;gap:12px;
+  padding:.85rem 1rem;
+  border-radius:var(--r-sm);
+  margin-bottom:6px;
+  border-left:4px solid transparent;
+}
+.lev-item.l1{background:#FBF1DD;border-color:var(--gold)}
+.lev-item.l2{background:#E6F4ED;border-color:var(--teal)}
+.lev-item.l3{background:#FDEEDE;border-color:var(--accent)}
+.lev-item.l4{background:#E4EEF8;border-color:var(--blue)}
+.lev-icon{font-size:20px;flex-shrink:0}
+.lev-title{font-size:13px;font-weight:600;color:var(--ink)}
+.lev-desc{font-size:12px;color:var(--ink2);line-height:1.4;margin-top:2px}
+.lev-result{
+  margin-left:auto;text-align:right;flex-shrink:0;
+}
+.lev-result strong{font-size:12px;font-weight:700;color:var(--ink);display:block}
+.lev-result span{font-size:11px;color:var(--ink3)}
+
+/* DISKUSI SECTION */
+.diskusi-list{list-style:none}
+.diskusi-list li{
+  display:flex;gap:10px;
+  padding:.9rem 1rem;
+  background:var(--bg3);
+  border:1px solid var(--border);
+  border-radius:var(--r-sm);
+  margin-bottom:8px;
+  font-size:13px;color:var(--ink);
+  line-height:1.5;
+}
+.diskusi-list li::before{
+  content:attr(data-n);
+  width:24px;height:24px;
+  background:var(--accent);color:#fff;
+  border-radius:50%;font-size:11px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:1px;
+}
+
+/* TIMELINE */
+.timeline{margin:1rem 0}
+.tl-item{
+  display:flex;gap:16px;
+  padding-bottom:1.2rem;
+  position:relative;
+}
+.tl-item:not(:last-child)::after{
+  content:'';
+  position:absolute;left:15px;top:32px;
+  width:2px;bottom:0;
+  background:var(--border2);
+}
+.tl-dot{
+  width:32px;height:32px;border-radius:50%;
+  background:var(--bg3);border:2px solid var(--accent);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;color:var(--accent);
+  flex-shrink:0;z-index:1;
+}
+.tl-dot.done{background:var(--teal);border-color:var(--teal);color:#fff}
+.tl-dot.gold{background:var(--gold);border-color:var(--gold);color:#fff}
+.tl-content{
+  background:var(--bg3);
+  border:1px solid var(--border);
+  border-radius:var(--r-sm);
+  padding:.85rem 1rem;
+  flex:1;
+}
+.tl-phase{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin-bottom:3px}
+.tl-title{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:4px}
+.tl-items{font-size:12px;color:var(--ink2);line-height:1.7}
+
+/* FOOTER */
+.footer{
+  background:var(--ink);
+  text-align:center;padding:2rem 1rem;
+  font-size:12px;color:rgba(255,255,255,0.35);
+}
+.footer strong{color:rgba(255,255,255,0.7);font-size:14px;display:block;margin-bottom:.3rem;font-family:'DM Serif Display',serif;font-weight:400}
+
+@media(max-width:480px){
+  .hero{padding:2rem 1rem 1.75rem}
+  .main{padding:1rem .75rem 3rem}
+  .cards{grid-template-columns:1fr 1fr}
+  .items-grid{grid-template-columns:1fr}
+  .summary-stats{grid-template-columns:1fr 1fr}
+  .lev-result{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-tag">📋 Bahan Diskusi Tim</div>
+  <h1>Ekosistem Bisnis<br><em>Skincare</em> Online</h1>
+  <p>Panduan lengkap dari supplier hingga scaling — dengan konsep leverage modal minimum.</p>
+  <div class="hero-meta">
+    <span>📦 4 Layer Ekosistem</span>
+    <span>💡 16 Komponen</span>
+    <span>💰 Modal mulai Rp 2–10 jt</span>
+  </div>
+</div>
+
+<nav class="nav-strip">
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="showSection('overview')">Overview</button>
+    <button class="nav-btn" onclick="showSection('supply')">🏭 Supply</button>
+    <button class="nav-btn" onclick="showSection('channel')">📣 Channel</button>
+    <button class="nav-btn" onclick="showSection('leverage')">⚡ Leverage</button>
+    <button class="nav-btn" onclick="showSection('ops')">⚙️ Operasional</button>
+    <button class="nav-btn" onclick="showSection('modal')">💰 Modal</button>
+    <button class="nav-btn" onclick="showSection('diskusi')">🗣 Diskusi</button>
+  </div>
+</nav>
+
+<div class="main">
+
+<!-- OVERVIEW -->
+<div id="sec-overview" class="section active">
+  <div class="section-header">
+    <div class="section-num">Gambaran Umum</div>
+    <div class="section-title">Cara kerja ekosistemnya</div>
+    <div class="section-desc">Bisnis skincare online bukan sekedar jualan produk — ini tentang membangun sistem yang bekerja bahkan saat kamu tidur. Klik setiap tab untuk detail masing-masing layer.</div>
+  </div>
+
+  <div class="flow">
+    <div class="flow-step">
+      <div class="flow-num">1</div>
+      <div class="flow-content">
+        <h4>Supply — Bangun pondasi produk</h4>
+        <p>Pilih model: dropship brand lain, white label (pasang merek sendiri), atau maklon (formulasi sendiri). Urus legalitas BPOM & NIB.</p>
+      </div>
+    </div>
+    <div class="flow-connector">↓</div>
+    <div class="flow-step">
+      <div class="flow-num gold">2</div>
+      <div class="flow-content">
+        <h4>Brand — Bangun identitas yang diingat</h4>
+        <p>Nama, logo, kemasan, dan positioning yang jelas. Target: skincare lokal affordable-premium untuk kulit Asia tropis.</p>
+      </div>
+    </div>
+    <div class="flow-connector">↓</div>
+    <div class="flow-step">
+      <div class="flow-num teal">3</div>
+      <div class="flow-content">
+        <h4>Channel — Distribusikan ke pasar</h4>
+        <p>TikTok + IG untuk awareness, Shopee/Tokopedia untuk volume, Website untuk brand asset, WhatsApp untuk retensi.</p>
+      </div>
+    </div>
+    <div class="flow-connector">↓</div>
+    <div class="flow-step">
+      <div class="flow-num blue">4</div>
+      <div class="flow-content">
+        <h4>Leverage — Skala tanpa modal linear</h4>
+        <p>Afiliasi (bayar per hasil), reseller network (100 orang jualan buat kamu), konten organik (kerja 1x, jalan terus).</p>
+      </div>
+    </div>
+    <div class="flow-connector">↓</div>
+    <div class="flow-step">
+      <div class="flow-num">5</div>
+      <div class="flow-content">
+        <h4>Operasional — Jaga mesin tetap jalan</h4>
+        <p>Fulfillment, payment gateway, customer service, dan cashflow management yang efisien.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="summary-card">
+    <h3>Kenapa skincare?</h3>
+    <p>Pasar kosmetik Indonesia tumbuh stabil, produk lokal makin dipercaya, dan skincare adalah kategori repeat-purchase tertinggi — customer beli ulang setiap 1–3 bulan.</p>
+    <div class="summary-stats">
+      <div class="stat"><div class="stat-val">Rp 2–10jt</div><div class="stat-label">Modal awal</div></div>
+      <div class="stat"><div class="stat-val">60–70%</div><div class="stat-label">Margin white label</div></div>
+      <div class="stat"><div class="stat-val">2–3 bln</div><div class="stat-label">Target balik modal</div></div>
+      <div class="stat"><div class="stat-val">3–5 SKU</div><div class="stat-label">Fokus produk awal</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SUPPLY -->
+<div id="sec-supply" class="section">
+  <div class="section-header">
+    <div class="section-num">Layer 1</div>
+    <div class="section-title">Supply & fondasi produk</div>
+    <div class="section-desc">Semua mulai dari sini — pilih model yang sesuai modal dan kesiapanmu.</div>
+  </div>
+
+  <div class="cards">
+    <div class="card" style="--card-accent:#C85A2A;--card-bg:#F5EDE8" onclick="toggleDetail(this,'supplier')">
+      <div class="card-icon">🏭</div>
+      <h3>Supplier & maklon</h3>
+      <p>3 opsi model bisnis</p>
+      <span class="card-arrow">›</span>
+    </div>
+    <div class="card" style="--card-accent:#D4A24A;--card-bg:#FBF4E5" onclick="toggleDetail(this,'brand')">
+      <div class="card-icon">🏷</div>
+      <h3>Brand identity</h3>
+      <p>Nama, logo, kemasan</p>
+      <span class="card-arrow">›</span>
+    </div>
+    <div class="card" style="--card-accent:#2A7A6A;--card-bg:#E2F2EE" onclick="toggleDetail(this,'produk')">
+      <div class="card-icon">✨</div>
+      <h3>Lini produk</h3>
+      <p>3–5 SKU fokus dulu</p>
+      <span class="card-arrow">›</span>
+    </div>
+    <div class="card" style="--card-accent:#2A5A8A;--card-bg:#E4EEF8" onclick="toggleDetail(this,'legalitas')">
+      <div class="card-icon">📜</div>
+      <h3>Legalitas</h3>
+      <p>BPOM, NIB, halal</p>
+      <span class="card-arrow">›</span>
+    </div>
+  </div>
+  <div id="detail-supply" class="detail" style="display:none"></div>
+
+  <table class="modal-table">
+    <thead><tr><th>Model</th><th>Modal Awal</th><th>Margin</th><th>Cocok Untuk</th></tr></thead>
+    <tbody>
+      <tr><td>Reseller/Dropship</td><td>< Rp 1 jt</td><td>15–25%</td><td>Baru mulai, validasi pasar</td></tr>
+      <tr><td>White Label</td><td>Rp 3–10 jt</td><td>50–70%</td><td>Punya brand sendiri, modal cukup</td></tr>
+      <tr><td>Maklon (OEM)</td><td>Rp 15–30 jt</td><td>70–80%</td><td>Sudah ada pasar, mau diferensiasi</td></tr>
+      <tr class="highlight"><td colspan="4">⭐ Rekomendasi: mulai white label, upgrade ke maklon setelah ada cashflow</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- CHANNEL -->
+<div id="sec-channel" class="section">
+  <div class="section-header">
+    <div class="section-num">Layer 2</div>
+    <div class="section-title">Channel & digital marketing</div>
+    <div class="section-desc">Setiap channel punya peran berbeda — jangan coba semua sekaligus. Mulai 2–3 channel, kuasai, lalu expand.</div>
+  </div>
+
+  <div class="cards">
+    <div class="card" style="--card-accent:#C85A2A;--card-bg:#F5EDE8" onclick="toggleDetail(this,'tiktok')">
+      <div class="card-icon">🎵</div>
+      <h3>TikTok</h3>
+      <p>Organic + Shop + Live</p>
+      <span class="card-arrow">›</span>
+    </div>
+    <div class="card" style="--card-accent:#D4A24A;--card-bg:#FBF4E5" onclick="toggleDetail(this,'ig')">
+      <div class="card-icon">📸</div>
+      <h3>Instagram</h3>
+      <p>Feed + Reels + Shop</p>
+      <span class="card-arrow">›</span>
+    </div>
+    <div class="card" style="--card-accent:#2A7A6A;--card-bg:#E2F2EE" onclick="toggleDetail(this,'marketplace')">
+      <div class="card-icon">🛒</div>
+      <h3>Marketplace</h3>
+      <p>Shopee, Tokopedia</p>
+      <span class="card-arrow">›</span>
+    </div>
+    <div class="card" style="--card-accent:#2A5A8A;--card-bg:#E4EEF8" onclick="toggleDetail(this,'web')">
+      <div class="card-icon">🌐</div>
+      <h3>Website</h3>
+      <p>Brand store sendiri</p>
+      <span class="card-arrow">›</span>
+    </div>
+    <div class="card" style="--card-accent:#C85A2A;--card-bg:#F5EDE8" onclick="toggleDetail(this,'wa')">
+      <div class="card-icon">💬</div>
+      <h3>WhatsApp</h3>
+      <p>CRM & loyalty</p>
+      <span class="card-arrow">›</span>
+    </div>
+  </div>
+  <div id="detail-channel" class="detail" style="display:none"></div>
+</div>
+
+<!-- LEVERAGE -->
+<div id="sec-leverage" class="section">
+  <div class="section-header">
+    <div class="section-num">Layer 3 — Paling Penting</div>
+    <div class="section-title">Konsep leverage bisnis</div>
+    <div class="section-desc">Leverage artinya: usaha kecil → dampak besar. Ini yang membedakan bisnis yang tumbuh dengan bisnis yang cuma bertahan.</div>
+  </div>
+
+  <div class="leverage-stack">
+    <div class="lev-item l1">
+      <div class="lev-icon">⚡</div>
+      <div>
+        <div class="lev-title">Konten organik (leverage waktu)</div>
+        <div class="lev-desc">1 video dibuat = terus bekerja berbulan-bulan. Zero biaya tambahan setelah dibuat.</div>
+      </div>
+      <div class="lev-result"><strong>∞ ROI</strong><span>kerja 1x</span></div>
+    </div>
+    <div class="lev-item l2">
+      <div class="lev-icon">🤝</div>
+      <div>
+        <div class="lev-title">Afiliasi TikTok/Shopee (leverage jaringan)</div>
+        <div class="lev-desc">Kreator lain promosikan produkmu. Kamu bayar HANYA kalau ada penjualan terjadi.</div>
+      </div>
+      <div class="lev-result"><strong>0 upfront</strong><span>bayar per hasil</span></div>
+    </div>
+    <div class="lev-item l3">
+      <div class="lev-icon">👥</div>
+      <div>
+        <div class="lev-title">Reseller network (leverage manusia)</div>
+        <div class="lev-desc">100 reseller masing-masing jual 5 order/hari = 500 order/hari tanpa kamu turun tangan.</div>
+      </div>
+      <div class="lev-result"><strong>×100</strong><span>force multiplier</span></div>
+    </div>
+    <div class="lev-item l4">
+      <div class="lev-icon">🔄</div>
+      <div>
+        <div class="lev-title">Sales funnel otomatis (leverage sistem)</div>
+        <div class="lev-desc">Sekali setup: awareness → interest → beli → upsell → repeat. Jalan sendiri 24/7.</div>
+      </div>
+      <div class="lev-result"><strong>24/7</strong><span>jalan otomatis</span></div>
+    </div>
+  </div>
+
+  <div class="cards">
+    <div class="card" style="--card-accent:#C85A2A;--card-bg:#F5EDE8" onclick="toggleDetail(this,'kol')">
+      <div class="card-icon">📢</div>
+      <h3>KOL & affiliate</h3>
+      <p>Bayar per hasil saja</p>
+      <span class="card-arrow">›</span>
+    </div>
+    <div class="card" style="--card-accent:#2A7A6A;--card-bg:#E2F2EE" onclick="toggleDetail(this,'reseller')">
+      <div class="card-icon">👥</div>
+      <h3>Reseller network</h3>
+      <p>Army of sellers</p>
+      <span class="card-arrow">›</span>
+    </div>
+    <div class="card" style="--card-accent:#D4A24A;--card-bg:#FBF4E5" onclick="toggleDetail(this,'funnel')">
+      <div class="card-icon">🔽</div>
+      <h3>Sales funnel</h3>
+      <p>Lead → upsell → repeat</p>
+      <span class="card-arrow">›</span>
+    </div>
+  </div>
+  <div id="detail-leverage" class="detail" style="display:none"></div>
+</div>
+
+<!-- OPS -->
+<div id="sec-ops" class="section">
+  <div class="section-header">
+    <div class="section-num">Layer 4</div>
+    <div class="section-title">Operasional & sistem</div>
+    <div class="section-desc">Fondasi operasional yang solid mencegah bisnis ambruk saat order mulai ramai.</div>
+  </div>
+
+  <div class="cards">
+    <div class="card" style="--card-accent:#C85A2A;--card-bg:#F5EDE8" onclick="toggleDetail(this,'fulfillment')">
+      <div class="card-icon">📦</div>
+      <h3>Fulfillment</h3>
+      <p>Packing & ekspedisi</p>
+      <span class="card-arrow">›</span>
+    </div>
+    <div class="card" style="--card-accent:#2A5A8A;--card-bg:#E4EEF8" onclick="toggleDetail(this,'payment')">
+      <div class="card-icon">💳</div>
+      <h3>Payment gateway</h3>
+      <p>Semua opsi pembayaran</p>
+      <span class="card-arrow">›</span>
+    </div>
+    <div class="card" style="--card-accent:#2A7A6A;--card-bg:#E2F2EE" onclick="toggleDetail(this,'cs')">
+      <div class="card-icon">🎧</div>
+      <h3>Customer service</h3>
+      <p>Chat, komplain, review</p>
+      <span class="card-arrow">›</span>
+    </div>
+  </div>
+  <div id="detail-ops" class="detail" style="display:none"></div>
+</div>
+
+<!-- MODAL -->
+<div id="sec-modal" class="section">
+  <div class="section-header">
+    <div class="section-num">Finansial</div>
+    <div class="section-title">Estimasi modal & cashflow</div>
+    <div class="section-desc">Rincian biaya realistis untuk memulai bisnis skincare dengan brand sendiri.</div>
+  </div>
+
+  <table class="modal-table">
+    <thead><tr><th>Komponen</th><th>Minimum</th><th>Ideal</th><th>Keterangan</th></tr></thead>
+    <tbody>
+      <tr><td>Stok awal (white label 200 pcs × 2 SKU)</td><td>Rp 4 jt</td><td>Rp 6 jt</td><td>Harga/pcs Rp 10–15rb, jual Rp 50–80rb</td></tr>
+      <tr><td>Kemasan & branding</td><td>Rp 500rb</td><td>Rp 1,5 jt</td><td>Sticker, box, thank you card</td></tr>
+      <tr><td>Legalitas (NIB + BPOM 2 produk)</td><td>Rp 200rb</td><td>Rp 800rb</td><td>NIB gratis, BPOM ~Rp 100–300rb/produk</td></tr>
+      <tr><td>Konten & tools</td><td>Rp 0</td><td>Rp 500rb</td><td>Canva Pro Rp 80rb, ring light bekas Rp 150rb</td></tr>
+      <tr><td>Marketing awal</td><td>Rp 500rb</td><td>Rp 1,5 jt</td><td>Nano KOL (kirim produk) + iklan kecil</td></tr>
+      <tr class="highlight"><td><strong>TOTAL</strong></td><td><strong>Rp 5,2 jt</strong></td><td><strong>Rp 10,3 jt</strong></td><td>Target balik modal: 2–3 bulan</td></tr>
+    </tbody>
+  </table>
+
+  <div class="summary-card" style="margin-top:1.5rem">
+    <h3>Simulasi cashflow sederhana</h3>
+    <p>Dengan 200 pcs stok, harga jual rata-rata Rp 65.000, dan margin 60%:</p>
+    <div class="summary-stats">
+      <div class="stat"><div class="stat-val">Rp 13 jt</div><div class="stat-label">Total revenue (jual habis)</div></div>
+      <div class="stat"><div class="stat-val">Rp 7,8 jt</div><div class="stat-label">Gross profit (60%)</div></div>
+      <div class="stat"><div class="stat-val">Rp 2–3 jt</div><div class="stat-label">Est. profit bersih</div></div>
+      <div class="stat"><div class="stat-val">1–2 bln</div><div class="stat-label">Habiskan stok awal</div></div>
+    </div>
+  </div>
+
+  <h3 style="font-size:15px;font-weight:600;margin:1.5rem 0 .75rem;color:var(--ink)">Opsi mulai dengan modal ultra-minim</h3>
+  <div class="cards">
+    <div class="card" style="--card-accent:#2A7A6A;--card-bg:#E2F2EE">
+      <div class="card-icon">🌱</div>
+      <h3>Modal Rp 500rb–1jt</h3>
+      <p>Dropship / reseller brand lain. Tidak perlu stok, tidak ada risiko. Fokus belajar jualan & konten dulu.</p>
+    </div>
+    <div class="card" style="--card-accent:#D4A24A;--card-bg:#FBF4E5">
+      <div class="card-icon">🚀</div>
+      <h3>Modal Rp 3–5 jt</h3>
+      <p>White label 1 produk hero (misal sunscreen). Mulai kecil, validasi, baru expand SKU.</p>
+    </div>
+    <div class="card" style="--card-accent:#C85A2A;--card-bg:#F5EDE8">
+      <div class="card-icon">🏆</div>
+      <h3>Modal Rp 5–10 jt</h3>
+      <p>2–3 SKU white label + kemasan proper + legalitas lengkap. Setup optimal untuk scale.</p>
+    </div>
+  </div>
+</div>
+
+<!-- DISKUSI -->
+<div id="sec-diskusi" class="section">
+  <div class="section-header">
+    <div class="section-num">Bahan Diskusi Tim</div>
+    <div class="section-title">Pertanyaan yang harus dijawab bersama</div>
+    <div class="section-desc">Sebelum mulai, pastikan semua pertanyaan ini sudah ada jawabannya dari hasil diskusi tim.</div>
+  </div>
+
+  <h3 style="font-size:13px;font-weight:600;color:var(--ink2);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.75rem">Fondasi bisnis</h3>
+  <ul class="diskusi-list">
+    <li data-n="1">Siapa yang handle setiap fungsi? <strong>Konten, operasional, keuangan, customer service</strong> — harus ada PIC-nya dari awal.</li>
+    <li data-n="2">Berapa <strong>modal yang bisa dikumpulkan bersama</strong>? Apakah patungan atau ada yang jadi investor?</li>
+    <li data-n="3">Model bisnis apa yang dipilih dulu — <strong>dropship, white label, atau langsung maklon</strong>?</li>
+    <li data-n="4">Apakah ada anggota tim yang punya <strong>koneksi ke supplier skincare atau fashion</strong> lokal?</li>
+  </ul>
+
+  <h3 style="font-size:13px;font-weight:600;color:var(--ink2);text-transform:uppercase;letter-spacing:.08em;margin:.75rem 0">Produk & brand</h3>
+  <ul class="diskusi-list">
+    <li data-n="5"><strong>Produk apa yang jadi hero product</strong>? Sunscreen? Serum? Harus 1 produk fokus dulu.</li>
+    <li data-n="6">Nama brand mana yang paling cocok? Pertimbangkan: <strong>mudah diingat, belum ada yang pakai, punya makna</strong>.</li>
+    <li data-n="7">Positioning: <strong>affordable-premium, niche kulit tropis, clean beauty</strong>, atau yang lain?</li>
+  </ul>
+
+  <h3 style="font-size:13px;font-weight:600;color:var(--ink2);text-transform:uppercase;letter-spacing:.08em;margin:.75rem 0">Eksekusi</h3>
+  <ul class="diskusi-list">
+    <li data-n="8">Channel mana yang jadi <strong>prioritas pertama</strong>? TikTok, Shopee, atau keduanya bersamaan?</li>
+    <li data-n="9">Siapa yang akan <strong>buat konten</strong>? Perlu on-camera person atau bisa pakai konten tanpa wajah?</li>
+    <li data-n="10">Kapan target <strong>soft launch</strong>? Realistis 4–8 minggu dari sekarang jika mulai segera.</li>
+  </ul>
+
+  <h3 style="font-size:14px;font-weight:600;color:var(--ink);margin:1.5rem 0 .75rem">Langkah selanjutnya setelah diskusi</h3>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot">1</div>
+      <div class="tl-content">
+        <div class="tl-phase">Minggu 1–2</div>
+        <div class="tl-title">Riset & keputusan</div>
+        <div class="tl-items">Survei pasar (tanya 20–30 orang), pilih nama brand, tentukan hero product, cari 3–5 supplier white label untuk dibandingkan.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">2</div>
+      <div class="tl-content">
+        <div class="tl-phase">Minggu 3–4</div>
+        <div class="tl-title">Setup & produksi</div>
+        <div class="tl-items">Order sampel dari supplier terpilih, desain kemasan (Canva), daftar NIB, buat akun medsos brand, siapkan 10–15 konten pre-launch.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot done">3</div>
+      <div class="tl-content">
+        <div class="tl-phase">Minggu 5–6</div>
+        <div class="tl-title">Soft launch</div>
+        <div class="tl-items">Mulai posting konten, buka pre-order, kirim produk ke 5–10 nano KOL untuk review, aktifkan toko di Shopee.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot gold">4</div>
+      <div class="tl-content">
+        <div class="tl-phase">Bulan 2–3</div>
+        <div class="tl-title">Optimasi & scaling</div>
+        <div class="tl-items">Analisis konten & produk terlaris, aktifkan program afiliasi, mulai rekrut reseller pertama, pertimbangkan iklan berbayar.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end main -->
+
+<footer class="footer">
+  <strong>Ekosistem Bisnis Skincare Online</strong>
+  <div style="margin:.75rem 0;width:40px;height:1px;background:rgba(255,255,255,0.15);margin:1rem auto"></div>
+  <div style="color:rgba(255,255,255,0.55);font-size:13px;margin-bottom:.3rem">
+    Dirancang &amp; dikonsep oleh
+  </div>
+  <div style="color:rgba(255,255,255,0.85);font-size:15px;font-family:'DM Serif Display',serif;font-weight:400;margin-bottom:.25rem">
+    Milzon — Architecture Design Concept
+  </div>
+  <div style="color:rgba(255,255,255,0.3);font-size:12px;letter-spacing:.06em">
+    &copy; 2026 Milzon &nbsp;·&nbsp; Architecture Design Concept &nbsp;·&nbsp; All rights reserved
+  </div>
+  <div style="margin-top:.5rem;color:rgba(255,255,255,0.2);font-size:11px">
+    Dokumen bahan diskusi internal &nbsp;·&nbsp; Draft v1.0
+  </div>
+</footer>
+
+<script>
+// NAV
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('sec-' + id).classList.add('active');
+  event.currentTarget.classList.add('active');
+  window.scrollTo({top: document.querySelector('.nav-strip').offsetTop - 10, behavior: 'smooth'});
+  // close any open details
+  document.querySelectorAll('.detail').forEach(d => d.style.display = 'none');
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('open'));
+}
+
+// DETAIL DATA
+const details = {
+  supplier:{
+    title:"Supplier & maklon — pilih model yang tepat",
+    section:"supply",
+    items:[
+      {label:"Opsi 1 — Dropship/Reseller",val:"Modal: < Rp 1 juta",note:"Jual produk brand lain. Tidak perlu stok sama sekali. Margin tipis (15–25%) tapi zero risiko. Cocok untuk belajar jualan & konten dulu."},
+      {label:"Opsi 2 — White Label",val:"MOQ 100–500 pcs, modal Rp 3–10 jt",note:"Produk jadi dari supplier, kamu pasang label/brand sendiri. Supplier rekomendasi: Skinlab, Coslab, Beautylab, Natcoskin (cari di Google/Tokopedia)."},
+      {label:"Opsi 3 — Maklon (OEM)",val:"MOQ 500–1000 pcs, modal Rp 15–30 jt",note:"Formulasi produk sendiri bersama pabrik kosmetik. Lebih diferensiasi, tapi proses 2–4 bulan dan butuh modal lebih besar."},
+      {label:"Rekomendasi strategi",val:"White label dulu → upgrade ke maklon",note:"Validasi pasar dulu dengan white label. Setelah ada cashflow dan tahu produk apa yang paling laku, baru invest ke maklon untuk brand yang lebih kuat."},
+    ],
+    badges:["badge-green|White label = entry terbaik","badge-orange|Maklon = level selanjutnya","badge-blue|BPOM wajib ada sebelum jual"]
+  },
+  brand:{
+    title:"Brand identity & positioning",
+    section:"supply",
+    items:[
+      {label:"Nama brand",val:"Singkat, unik, mudah diingat",note:"Contoh: Glowin, Skinca, Lumina, Dawi, Cela. Cek availability di Instagram dan Shopee sebelum commit."},
+      {label:"Logo & visual",val:"Canva Pro (Rp 80rb/bln) atau Fiverr",note:"Konsisten di semua platform: warna utama, font, mood foto. Ini yang bikin brand terlihat profesional."},
+      {label:"Kemasan",val:"Print lokal, min. 100 pcs",note:"Cari vendor di Tokopedia: 'cetak kemasan custom', 'sticker label skincare'. Budget Rp 500–1.500/pcs."},
+      {label:"Positioning yang tepat",val:"Skincare lokal, affordable-premium",note:"Niche terkuat: produk untuk kulit Asia tropis (lembap, berminyak, rentan sunburn), bahan transparan, harga Rp 50–150rb."},
+    ],
+    badges:["badge-gold|Brand = aset jangka panjang","badge-teal|Niche beats mass market"]
+  },
+  produk:{
+    title:"Lini produk awal — 3 sampai 5 SKU",
+    section:"supply",
+    items:[
+      {label:"Hero Product #1 — Sunscreen",val:"SPF 30–50, PA+++",note:"Permintaan tertinggi, repeat purchase bulanan, mudah dijelaskan di konten. Ini produk terbaik untuk anchor brand."},
+      {label:"Core Product #2 — Moisturizer",val:"Gel cream atau lotion",note:"Daily use, cocok semua jenis kulit, mudah diproduksi white label, jadi pasangan alami sunscreen."},
+      {label:"Growth Product #3 — Serum",val:"Niacinamide atau Vitamin C",note:"Trending, harga lebih premium (Rp 80–150rb), konten edukasi mudah dibuat (brightening, pore-minimizing)."},
+      {label:"Upsell Product #4 — Toner",val:"Hydrating toner",note:"Pasangkan dengan serum sebagai bundle deal → Average Order Value naik 30–50%."},
+      {label:"Strategi hero product",val:"Fokus 80% marketing ke 1 produk",note:"Jangan promosikan semua produk sekaligus. 1 hero product → awareness tinggi → beli satu, nanti cross-sell sisanya."},
+    ],
+    badges:["badge-green|Sunscreen = paling laku","badge-orange|Bundle = AOV naik","badge-teal|Max 5 SKU dulu"]
+  },
+  legalitas:{
+    title:"Legalitas yang wajib diurus",
+    section:"supply",
+    items:[
+      {label:"NIB (Nomor Induk Berusaha)",val:"GRATIS — oss.go.id",note:"Wajib untuk membuka usaha resmi. Proses online, selesai 1 hari. Ini yang pertama diurus."},
+      {label:"Notifikasi BPOM",val:"Rp 100–300rb per produk",note:"Untuk kosmetik lokal wajib notifikasi ke BPOM sebelum dijual. Proses 14 hari kerja. Daftar di notifkos.pom.go.id."},
+      {label:"Sertifikasi Halal",val:"Rp 500rb–2jt tergantung jenis produk",note:"Nilai jual besar untuk pasar Indonesia. Proses via sertifikasi.halal.go.id (BPJPH). Bisa jadi pembeda dari kompetitor."},
+      {label:"Tips hemat: pilih maklon ber-GMP",val:"Pakai sertifikasi supplier",note:"Banyak supplier maklon/white label sudah punya GMP (Good Manufacturing Practice) dan BPOM pabrik — kamu tinggal notifikasi produknya saja."},
+    ],
+    badges:["badge-orange|BPOM wajib sebelum jual","badge-blue|NIB gratis, urus duluan","badge-green|Halal = nilai tambah besar"]
+  },
+  tiktok:{
+    title:"TikTok — mesin pertumbuhan organik",
+    section:"channel",
+    items:[
+      {label:"TikTok Shop",val:"Komisi platform 1–5% per order",note:"Aktifkan TikTok Seller Center, upload produk, link di setiap video dan live. Setup gratis, butuh KTP & NPWP."},
+      {label:"Konten organik",val:"Target 3–5 video per minggu",note:"Format terbaik: GRWM, 'why I switched', before-after skincare, ingredient breakdown, debunking skincare myths."},
+      {label:"Live selling",val:"2–3 kali seminggu, 30–60 menit",note:"ROI live biasanya lebih tinggi dari video biasa. Siapkan flash deal khusus live (diskon 15–20% selama live)."},
+      {label:"Program Afiliasi TikTok",val:"Komisi 5–15% per penjualan",note:"Buka kolaborasi afiliasi di Seller Center. Kreator konten akan mempromosikan produkmu. Kamu hanya bayar kalau ada penjualan — pure leverage."},
+    ],
+    badges:["badge-green|Organik = modal konten saja","badge-teal|Afiliasi = bayar per hasil"]
+  },
+  ig:{
+    title:"Instagram — brand building & visual",
+    section:"channel",
+    items:[
+      {label:"Feed & Reels",val:"3–4 post per minggu",note:"Feed: foto produk estetik dengan konsistensi visual. Reels: tutorial, GRWM, behind the scenes packing order."},
+      {label:"Stories",val:"Setiap hari (lebih casual)",note:"Polling produk baru, Q&A skincare, countdown sale, 'swipe up' ke link produk. Membangun kedekatan dengan followers."},
+      {label:"Instagram Shop",val:"Setup 1x, terus jalan",note:"Hubungkan katalog produk. Tag produk langsung di foto/reel/stories. Customer bisa checkout langsung dari IG."},
+      {label:"Kolaborasi micro influencer",val:"Rp 100–500rb per post atau barter",note:"Micro (5K–50K followers) lebih trusted dan terjangkau. Engagement rate mereka biasanya 3–10% vs mega KOL yang 1–2%."},
+    ],
+    badges:["badge-blue|IG = brand awareness","badge-orange|Stories = engagement harian"]
+  },
+  marketplace:{
+    title:"Marketplace — volume penjualan & social proof",
+    section:"channel",
+    items:[
+      {label:"Shopee",val:"Fee 2–5% per transaksi",note:"Traffic paling besar di Indonesia. Manfaatkan: flash sale, gratis ongkir, Shopee Live, ShopeePay. Ikuti kampanye 11.11, 12.12."},
+      {label:"Tokopedia",val:"Fee 1–5% per transaksi",note:"Buyer lebih mature dan loyal. Cocok untuk produk skincare dengan harga menengah ke atas. Gunakan TopAds."},
+      {label:"Strategi awal",val:"Fokus 1 platform dulu",note:"Kuasai Shopee dulu: optimasi foto, deskripsi, review. Target minimal 4.8 bintang dan 100+ terjual sebelum expand."},
+      {label:"Iklan berbayar",val:"Budget Rp 50–200rb per hari",note:"Mulai iklan setelah ada minimal 10–20 review bintang 5. Tanpa review, iklan konversinya rendah."},
+    ],
+    badges:["badge-green|Shopee = traffic terbesar","badge-teal|Review = social proof utama"]
+  },
+  web:{
+    title:"Website — brand store & marketing hub",
+    section:"channel",
+    items:[
+      {label:"Platform: Shopify",val:"Rp 250–300rb per bulan",note:"Paling mudah setup, tidak butuh coding. Langsung bisa terima pembayaran, manajemen stok, analytics."},
+      {label:"Alternatif: WooCommerce",val:"Gratis (+ hosting Rp 100–200rb/bln)",note:"Lebih murah tapi butuh setup teknis. Cocok kalau ada anggota tim yang bisa WordPress."},
+      {label:"Domain & hosting",val:"Rp 150–300rb per tahun",note:"Beli .co.id atau .com di Niagahoster/Namecheap. Pilih nama = nama brand supaya konsisten."},
+      {label:"Fungsi utama website",val:"Landing page iklan + brand store",note:"Website jadi tujuan iklan Meta/Google Ads (lebih murah dari marketplace). Plus, kumpulkan email customer untuk marketing jangka panjang."},
+    ],
+    badges:["badge-blue|Website = long-term asset","badge-orange|Shopify = paling cepat mulai"]
+  },
+  wa:{
+    title:"WhatsApp Business — CRM & retensi",
+    section:"channel",
+    items:[
+      {label:"WhatsApp Business",val:"GRATIS — 1000 pesan/bln gratis",note:"Aktifkan katalog produk, quick reply untuk pertanyaan umum, label customer (baru, repeat, VIP)."},
+      {label:"Broadcast promo",val:"Kirim ke existing customer",note:"Flash sale eksklusif untuk pelanggan lama, restock produk yang habis, promo ulang tahun brand."},
+      {label:"Loyalty sederhana",val:"Track manual di awal",note:"'Beli 5x dapat voucher Rp 50rb' — catat di spreadsheet dulu. Bisa pakai tools SleekFlow atau Kommo setelah volume tinggi."},
+      {label:"Komunitas WA/Telegram",val:"Bangun grup skincare lovers",note:"Group berisi pelanggan loyal → UGC gratis, testimoni organik, word-of-mouth. Ini leverage terkuat tapi butuh konsistensi."},
+    ],
+    badges:["badge-teal|WA = retensi customer","badge-green|Komunitas = leverage terkuat"]
+  },
+  kol:{
+    title:"KOL & affiliate — leverage human capital",
+    section:"leverage",
+    items:[
+      {label:"Nano KOL (1K–5K followers)",val:"Kirim produk gratis (Rp 0 cash)",note:"ROI tertinggi. Mereka punya komunitas kecil yang sangat engaged dan percaya rekomendasi mereka. Cari di TikTok/IG yang kontennya tentang skincare."},
+      {label:"Micro KOL (5K–50K followers)",val:"Rp 100–500rb per post",note:"Engagement rate 3–10%. Lebih affordable dari mega KOL, hasil lebih authentic. Negosiasi bisa dengan produk + small fee."},
+      {label:"Afiliasi TikTok Shop",val:"Komisi 5–15% per penjualan",note:"Zero cost upfront. Buka showcase kolaborasi → creator bisa langsung tag produkmu → kamu bayar hanya kalau ada transaksi."},
+      {label:"Brand ambassador",val:"Produk gratis + komisi bulanan",note:"Pilih 1–2 orang yang genuinely suka produkmu. Lebih authentik dari paid endorse. Bisa dari circle pertemanan dulu."},
+    ],
+    badges:["badge-green|Afiliasi = bayar per hasil","badge-teal|Nano KOL = ROI tertinggi","badge-orange|Pure leverage model"]
+  },
+  reseller:{
+    title:"Reseller network — skalakan lewat orang lain",
+    section:"leverage",
+    items:[
+      {label:"Program reseller",val:"Margin 20–30% untuk reseller",note:"Rekrut ibu rumah tangga, mahasiswa, beauty enthusiast yang mau jualan online. Mereka punya audience, kamu punya produk."},
+      {label:"Syarat join reseller",val:"Beli stok awal Rp 300–500rb",note:"Barrier rendah tapi ada komitmen. Reseller yang sudah beli stok lebih motivated untuk jualan daripada yang modal nol."},
+      {label:"Support materi jualan",val:"Siapkan semua bahan siap pakai",note:"Caption, foto produk, video konten, story template — tinggal copy-paste. Semakin mudah buat reseller, semakin banyak yang mau bergabung."},
+      {label:"Leverage matematikanya",val:"100 reseller × 5 order/hari",note:"= 500 order per hari tanpa kamu jualan sendiri. Inilah true leverage: kamu fokus ke supply & produk, mereka yang distribute."},
+    ],
+    badges:["badge-green|Reseller = army of sellers","badge-blue|Materi siap = barrier rendah"]
+  },
+  funnel:{
+    title:"Sales funnel — sistem convert otomatis",
+    section:"leverage",
+    items:[
+      {label:"Stage 1 — Awareness",val:"Konten organik TikTok/IG",note:"Buat konten yang menyentuh masalah: 'kenapa kulit tetap kusam padahal sudah pakai skincare?' — bikin calon customer sadar masalah mereka."},
+      {label:"Stage 2 — Interest & Trust",val:"Edukasi + testimoni + before-after",note:"Bangun kepercayaan sebelum offer. Orang tidak beli dari brand yang baru dikenal — mereka butuh 7–10 touchpoints dulu."},
+      {label:"Stage 3 — Offer (Entry Point)",val:"Trial size / starter kit Rp 25–50rb",note:"Turunkan barrier pertama beli. Trial kit murah → lebih banyak yang mau coba → kalau suka, beli full size."},
+      {label:"Stage 4 — Upsell",val:"Bundle full size + bonus produk",note:"'Upgrade ke paket hemat, dapatkan toner senilai Rp 45rb gratis' → AOV naik, margin tetap bagus karena harga bundle lebih tinggi."},
+      {label:"Stage 5 — Repeat & Referral",val:"Follow-up WA + program loyalti",note:"D+7: tanya pengalaman pakai. D+30: broadcast promo. Berikan referral link → customer yang puas jadi sales force gratis."},
+    ],
+    badges:["badge-teal|Trial = turunkan barrier pertama","badge-orange|Upsell = margin naik","badge-green|Referral = traffic gratis"]
+  },
+  fulfillment:{
+    title:"Fulfillment & pengiriman",
+    section:"ops",
+    items:[
+      {label:"Fase awal: self-packing",val:"Packing sendiri di rumah",note:"Modal: bubble wrap, box, selotip, thank you card. Kamu kontrol kualitas packing. Hemat biaya sebelum order ramai."},
+      {label:"Ekspedisi bisnis",val:"JNE, SiCepat, J&T, AnterAja",note:"Daftar akun bisnis untuk rate lebih murah dan fitur pickup. Bandingkan rate di Shipper.id atau iSeller."},
+      {label:"Aktifkan COD",val:"Meningkatkan konversi 20–40%",note:"COD wajib diaktifkan di marketplace untuk menjangkau buyer yang belum percaya transfer. Khususnya di kota tier 2–3."},
+      {label:"Fase scaling: 3PL",val:"Jika sudah >50 order per hari",note:"Titipkan stok ke Shipper, iSeller, atau fulfillment warehouse Shopee/Tokopedia. Kamu tidak perlu packing lagi."},
+    ],
+    badges:["badge-green|Self-pack = hemat di awal","badge-teal|COD = konversi naik 20–40%"]
+  },
+  payment:{
+    title:"Payment gateway & opsi pembayaran",
+    section:"ops",
+    items:[
+      {label:"Marketplace (default)",val:"Transfer, QRIS, COD, e-wallet",note:"Semua sudah terintegrasi otomatis di Shopee/Tokopedia. Tidak perlu setup apapun — langsung bisa terima semua metode pembayaran."},
+      {label:"Website: Midtrans",val:"0.7–2% per transaksi",note:"Payment gateway paling populer di Indonesia. Mendukung semua bank (VA), e-wallet (GoPay, OVO, DANA), QRIS, kartu kredit."},
+      {label:"Alternatif: Xendit",val:"Rp 2.000–4.000 per transaksi",note:"Lebih murah untuk volume kecil. Proses settlement H+1 atau H+2. API developer-friendly jika mau custom."},
+      {label:"BNPL (Buy Now Pay Later)",val:"GoPay Later, Kredivo, Akulaku",note:"Integrasi BNPL terbukti meningkatkan AOV (Average Order Value) rata-rata 30–50%. Pasang di website setelah setup Shopify/WooCommerce."},
+    ],
+    badges:["badge-blue|Midtrans = paling populer","badge-orange|BNPL = AOV naik 30–50%"]
+  },
+  cs:{
+    title:"Customer service — jaga reputasi brand",
+    section:"ops",
+    items:[
+      {label:"Kecepatan respon",val:"Target < 2 jam di jam kerja",note:"Rating marketplace sangat dipengaruhi kecepatan respon. Aktifkan auto-reply dan notifikasi HP supaya tidak ada chat yang kelewat."},
+      {label:"Tools aggregator",val:"Freshdesk / SleekFlow (free tier)",note:"Satukan semua chat (WA, Shopee, IG, Tokopedia) dalam satu dashboard. Menghemat waktu banyak kalau sudah multi-channel."},
+      {label:"Strategi dapat review",val:"Minta review setelah delivered",note:"Kirim WA: 'Kak, produknya sudah diterima? Ada feedback?' — nudge natural yang efektif. Jangan terlalu formal, buat personal."},
+      {label:"Handling komplain",val:"Ganti atau refund tanpa drama",note:"1 komplain yang diviralkan bisa merusak reputasi berbulan-bulan. Prioritaskan resolusi cepat daripada menghemat Rp 50–100rb."},
+    ],
+    badges:["badge-teal|Review = aset terpenting","badge-green|Respon cepat = rating naik"]
+  }
+};
+
+let openCards = {};
+
+function toggleDetail(card, key) {
+  const d = details[key];
+  if (!d) return;
+  const sectionId = 'detail-' + d.section;
+  const detailEl = document.getElementById(sectionId);
+  const isOpen = card.classList.contains('open');
+
+  // close all
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('open'));
+  if (detailEl) { detailEl.style.display = 'none'; detailEl.innerHTML = ''; }
+
+  if (isOpen) return;
+
+  card.classList.add('open');
+
+  let html = `<div class="detail-header">
+    <h3>${d.title}</h3>
+    <button class="detail-close" onclick="closeDetail('${d.section}','${key}')">Tutup ✕</button>
+  </div>
+  <div class="detail-body">
+    <div class="items-grid">`;
+
+  d.items.forEach(i => {
+    html += `<div class="d-item">
+      <div class="d-item-label">${i.label}</div>
+      <div class="d-item-val">${i.val}</div>
+      <div class="d-item-note">${i.note}</div>
+    </div>`;
+  });
+
+  html += `</div>`;
+
+  if (d.badges) {
+    html += `<div class="badges">`;
+    d.badges.forEach(b => {
+      const [cls, txt] = b.split('|');
+      html += `<span class="badge ${cls}">${txt}</span>`;
+    });
+    html += `</div>`;
+  }
+  html += `</div>`;
+
+  detailEl.innerHTML = html;
+  detailEl.style.display = 'block';
+
+  // insert after the cards grid
+  const cardsGrid = card.closest('.cards');
+  if (cardsGrid && cardsGrid.nextElementSibling === detailEl) {
+    // already in right place
+  }
+  detailEl.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+function closeDetail(section, key) {
+  const detailEl = document.getElementById('detail-' + section);
+  if (detailEl) { detailEl.style.display = 'none'; detailEl.innerHTML = ''; }
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('open'));
+}
+</script>
+</body>
+</html>
