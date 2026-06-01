@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timeline & Cashflow Bisnis — Milzon</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F5F0;--bg2:#EEEAE2;--bg3:#fff;
+  --ink:#1A1814;--ink2:#5A5650;--ink3:#9A958E;
+  --teal:#2A7A6A;--teal-lt:#E1F5EE;
+  --amber:#D4A24A;--amber-lt:#FBF1DD;
+  --purple:#6A3A8A;--purple-lt:#F0E8F8;
+  --green:#3B6D11;--green-lt:#EAF3DE;
+  --blue:#185FA5;--blue-lt:#E4EEF8;
+  --orange:#C85A2A;--orange-lt:#FDEEDE;
+  --border:rgba(26,24,20,.10);--border2:rgba(26,24,20,.18);
+  --r:14px;--r-sm:8px;
+  --shadow:0 2px 12px rgba(26,24,20,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+
+.hero{background:var(--ink);color:#fff;padding:2.5rem 1.5rem 2rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(255,255,255,.02) 40px,rgba(255,255,255,.02) 41px)}
+.hero-tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:rgba(200,90,42,.25);color:#E8956A;padding:4px 14px;border-radius:20px;margin-bottom:.75rem;border:1px solid rgba(200,90,42,.3);position:relative}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,5vw,2.8rem);font-weight:400;line-height:1.15;position:relative;margin-bottom:.5rem}
+.hero h1 em{color:#E8956A;font-style:italic}
+.hero p{font-size:14px;color:rgba(255,255,255,.55);max-width:500px;margin:0 auto 1.25rem;line-height:1.6;position:relative}
+.hero-stats{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;position:relative}
+.hero-stat{text-align:center}
+.hero-stat-val{font-size:1.4rem;font-weight:700;color:#E8956A}
+.hero-stat-label{font-size:11px;color:rgba(255,255,255,.4);margin-top:1px}
+
+.nav-strip{background:var(--bg3);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;overflow-x:auto;scrollbar-width:none}
+.nav-strip::-webkit-scrollbar{display:none}
+.nav-inner{display:flex;min-width:max-content;padding:0 1rem}
+.nav-btn{padding:.75rem 1.2rem;font-size:13px;font-weight:500;color:var(--ink2);border:none;background:none;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .2s;font-family:'Plus Jakarta Sans',sans-serif}
+.nav-btn:hover{color:var(--ink)}
+.nav-btn.active{color:var(--orange);border-bottom-color:var(--orange)}
+
+.main{max-width:900px;margin:0 auto;padding:1.5rem 1rem 4rem}
+.section{display:none;animation:fadeIn .25s ease}
+.section.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+.sec-header{margin-bottom:1.5rem}
+.sec-tag{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:.25rem}
+.sec-title{font-family:'DM Serif Display',serif;font-size:clamp(1.4rem,4vw,1.9rem);font-weight:400;color:var(--ink);margin-bottom:.4rem}
+.sec-desc{font-size:14px;color:var(--ink2);line-height:1.7;max-width:580px}
+
+/* TIMELINE */
+.tl{margin:1rem 0}
+.tl-item{display:flex;gap:0;margin-bottom:2px}
+.tl-gutter{width:40px;display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+.tl-dot{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;flex-shrink:0;z-index:1;border:2px solid}
+.tl-line{width:2px;flex:1;margin-top:3px;min-height:12px}
+.d0 .tl-dot{background:var(--teal-lt);color:var(--teal);border-color:var(--teal)}
+.d0 .tl-line{background:var(--teal)}
+.d1 .tl-dot{background:var(--amber-lt);color:#8A5A10;border-color:var(--amber)}
+.d1 .tl-line{background:var(--amber)}
+.d2 .tl-dot{background:var(--purple-lt);color:var(--purple);border-color:var(--purple)}
+.d2 .tl-line{background:var(--purple)}
+.d3 .tl-dot{background:var(--green-lt);color:var(--green);border-color:var(--green)}
+.d3 .tl-line{background:var(--green)}
+
+.tl-card{flex:1;margin-left:12px;margin-bottom:14px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:1rem 1.2rem;transition:box-shadow .2s}
+.tl-card:hover{box-shadow:var(--shadow)}
+.tl-phase-tag{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin-bottom:4px}
+.tl-card-title{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:.75rem}
+.tl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,190px),1fr));gap:8px;margin-bottom:.75rem}
+.tl-box{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-sm);padding:.65rem .8rem}
+.tl-box-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--ink3);margin-bottom:2px}
+.tl-box-val{font-size:12px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.tl-box-note{font-size:11px;color:var(--ink2);line-height:1.5}
+.cost-pill{display:inline-block;font-size:12px;font-weight:600;padding:4px 14px;border-radius:20px}
+
+/* CASHFLOW BARS */
+.cf-section{margin-bottom:1.25rem}
+.cf-section-title{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--ink3);margin-bottom:.6rem;padding-bottom:.4rem;border-bottom:1px solid var(--border)}
+.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.bar-label{font-size:12px;color:var(--ink2);width:130px;flex-shrink:0;text-align:right}
+.bar-track{flex:1;height:24px;background:var(--bg2);border-radius:6px;overflow:hidden}
+.bar-fill{height:100%;border-radius:6px;display:flex;align-items:center;padding:0 10px;min-width:60px}
+.bar-fill span{font-size:11px;font-weight:600;white-space:nowrap}
+.bar-note{font-size:11px;color:var(--ink3);width:70px;flex-shrink:0}
+
+/* TABLES */
+.tbl{width:100%;border-collapse:collapse;font-size:13px;margin:.75rem 0 1.25rem}
+.tbl th{background:var(--ink);color:#fff;padding:.6rem .85rem;text-align:left;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.tbl th:first-child{border-radius:var(--r-sm) 0 0 0}
+.tbl th:last-child{border-radius:0 var(--r-sm) 0 0}
+.tbl td{padding:.6rem .85rem;border-bottom:1px solid var(--border);color:var(--ink);line-height:1.5;vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:nth-child(even) td{background:var(--bg)}
+.tbl tr.hl td{background:var(--amber-lt);font-weight:600}
+.tbl tr.hl2 td{background:var(--green-lt);font-weight:600}
+.tbl .muted{color:var(--ink2)}
+
+/* METRIC CARDS */
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:1.5rem}
+.metric{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-sm);padding:1rem 1.1rem}
+.metric-label{font-size:11px;color:var(--ink3);margin-bottom:4px}
+.metric-val{font-size:1.4rem;font-weight:700;color:var(--ink);margin-bottom:2px}
+.metric-sub{font-size:11px;color:var(--ink2)}
+
+/* STREAM CARDS */
+.stream-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px;margin:1rem 0}
+.stream-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:1.1rem 1.2rem}
+.stream-icon{font-size:1.5rem;margin-bottom:.4rem}
+.stream-name{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:.3rem}
+.stream-row{display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px}
+.stream-row .k{color:var(--ink2)}
+.stream-row .v{font-weight:600;color:var(--ink)}
+.stream-divider{border:none;border-top:1px solid var(--border);margin:.6rem 0}
+
+/* NOTE BOX */
+.note-box{background:var(--teal-lt);border:1px solid rgba(42,122,106,.25);border-left:4px solid var(--teal);border-radius:var(--r-sm);padding:.85rem 1rem;margin:1rem 0;font-size:13px;color:var(--ink);line-height:1.7}
+.note-box strong{font-weight:600;display:block;margin-bottom:3px}
+
+/* FOOTER */
+.footer{background:var(--ink);text-align:center;padding:2rem 1rem}
+.footer-brand{font-family:'DM Serif Display',serif;font-size:1.1rem;font-weight:400;color:rgba(255,255,255,.85);margin-bottom:.25rem}
+.footer-copy{font-size:11px;color:rgba(255,255,255,.25);margin-top:.4rem}
+
+@media(max-width:500px){
+  .hero{padding:1.75rem 1rem 1.5rem}
+  .main{padding:1rem .75rem 3rem}
+  .tl-grid{grid-template-columns:1fr}
+  .metrics{grid-template-columns:1fr 1fr}
+  .bar-label{width:90px;font-size:11px}
+  .stream-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-tag">Rencana Eksekusi Bisnis</div>
+  <h1>Timeline &amp; <em>Cashflow</em><br>6 Bulan Pertama</h1>
+  <p>Skincare · Fashion Allan &amp; Ray · Konsultan ADC — semua dijalankan paralel dengan modal minim dan konsep leverage.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="hero-stat-val">Rp 15 jt</div><div class="hero-stat-label">Modal awal ideal</div></div>
+    <div class="hero-stat"><div class="hero-stat-val">4–5 bln</div><div class="hero-stat-label">Target balik modal</div></div>
+    <div class="hero-stat"><div class="hero-stat-val">3 stream</div><div class="hero-stat-label">Sumber revenue</div></div>
+    <div class="hero-stat"><div class="hero-stat-val">Rp 50 jt</div><div class="hero-stat-label">Target bulan ke-6</div></div>
+  </div>
+</div>
+
+<nav class="nav-strip">
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="showSection('timeline')">📅 Timeline</button>
+    <button class="nav-btn" onclick="showSection('cashflow')">📊 Cashflow per Fase</button>
+    <button class="nav-btn" onclick="showSection('modal')">💰 Total Biaya</button>
+    <button class="nav-btn" onclick="showSection('ops')">⚙️ Operasional</button>
+    <button class="nav-btn" onclick="showSection('proyeksi')">📈 Proyeksi Revenue</button>
+  </div>
+</nav>
+
+<div class="main">
+
+<!-- TIMELINE -->
+<div id="sec-timeline" class="section active">
+  <div class="sec-header">
+    <div class="sec-tag">Peta Jalan Eksekusi</div>
+    <div class="sec-title">Timeline 6 bulan pertama</div>
+    <div class="sec-desc">Jalankan semua fase secara berurutan — jangan loncat ke fase berikutnya sebelum fondasi fase sebelumnya solid.</div>
+  </div>
+
+  <div class="tl">
+
+    <div class="tl-item d0">
+      <div class="tl-gutter"><div class="tl-dot">0</div><div class="tl-line"></div></div>
+      <div class="tl-card">
+        <div class="tl-phase-tag">Sekarang — Minggu 1 hingga 2</div>
+        <div class="tl-card-title">Persiapan & keputusan fondasi</div>
+        <div class="tl-grid">
+          <div class="tl-box"><div class="tl-box-label">Skincare</div><div class="tl-box-val">Pilih model bisnis</div><div class="tl-box-note">Kontak 3 pabrik maklon untuk minta quotasi dan sampel. Putuskan: dropship, white label, atau maklon.</div></div>
+          <div class="tl-box"><div class="tl-box-label">Fashion Allan & Ray</div><div class="tl-box-val">Riset & brand setup</div><div class="tl-box-note">Daftarkan nama merek di DJKI (merek.dgip.go.id). Cari 2–3 konveksi Bandung untuk minta sampel.</div></div>
+          <div class="tl-box"><div class="tl-box-label">Legal & admin</div><div class="tl-box-val">NIB + akun BPOM</div><div class="tl-box-note">Daftar NIB di oss.go.id (gratis, 1 hari). Buat akun notifkos.pom.go.id (gratis, 3–7 hari).</div></div>
+          <div class="tl-box"><div class="tl-box-label">Keuangan</div><div class="tl-box-val">Siapkan Rp 2–3 jt</div><div class="tl-box-note">Dana awal: biaya sampel pabrik, desain kemasan versi pertama, pendaftaran merek dua brand.</div></div>
+        </div>
+        <span class="cost-pill" style="background:var(--teal-lt);color:var(--teal)">Cash keluar fase ini: Rp 1,5 – 3 jt</span>
+      </div>
+    </div>
+
+    <div class="tl-item d1">
+      <div class="tl-gutter"><div class="tl-dot">1</div><div class="tl-line"></div></div>
+      <div class="tl-card">
+        <div class="tl-phase-tag">Bulan 1 — Produksi & aset digital</div>
+        <div class="tl-card-title">Order produksi pertama & bangun semua kanal</div>
+        <div class="tl-grid">
+          <div class="tl-box"><div class="tl-box-label">Skincare</div><div class="tl-box-val">Order white label</div><div class="tl-box-note">200 pcs × 2 SKU (sunscreen + moisturizer). Urus notifikasi BPOM. Desain kemasan final dan cetak.</div></div>
+          <div class="tl-box"><div class="tl-box-label">Fashion Allan & Ray</div><div class="tl-box-val">Produksi drop pertama</div><div class="tl-box-note">48–72 pcs dari konveksi Bandung. 3 desain × 2 warna. Sesi foto produk aesthetic untuk feed IG.</div></div>
+          <div class="tl-box"><div class="tl-box-label">Digital semua brand</div><div class="tl-box-val">Buat seluruh akun</div><div class="tl-box-note">Instagram + TikTok + Shopee untuk kedua brand. WhatsApp Business. Siapkan 15 konten pre-launch.</div></div>
+          <div class="tl-box"><div class="tl-box-label">Konsultan ADC</div><div class="tl-box-val">Dokumentasi proses</div><div class="tl-box-note">Catat seluruh proses sebagai case study portofolio. Buat landing page di GitHub Pages.</div></div>
+        </div>
+        <span class="cost-pill" style="background:var(--amber-lt);color:#7A4A08">Cash keluar fase ini: Rp 6 – 10 jt</span>
+      </div>
+    </div>
+
+    <div class="tl-item d2">
+      <div class="tl-gutter"><div class="tl-dot">2</div><div class="tl-line"></div></div>
+      <div class="tl-card">
+        <div class="tl-phase-tag">Bulan 2 hingga 3 — Soft launch & validasi</div>
+        <div class="tl-card-title">Mulai jual, kumpulkan review & data pasar</div>
+        <div class="tl-grid">
+          <div class="tl-box"><div class="tl-box-label">Skincare</div><div class="tl-box-val">Buka toko & mulai jual</div><div class="tl-box-note">Aktifkan Shopee + TikTok Shop. Kirim produk ke 10 nano KOL untuk review. Target 50 order bulan pertama.</div></div>
+          <div class="tl-box"><div class="tl-box-label">Fashion Allan & Ray</div><div class="tl-box-val">Drop 001 — pre-order</div><div class="tl-box-note">Announce di TikTok & IG. Buka pre-order 7 hari. Kirim ke 5 nano KOL Gen Z. Target habis 2 minggu.</div></div>
+          <div class="tl-box"><div class="tl-box-label">Konten rutin</div><div class="tl-box-val">5 post per minggu</div><div class="tl-box-note">TikTok organik: GRWM skincare, OOTD Allan & Ray. Stories setiap hari. Live selling 2× seminggu.</div></div>
+          <div class="tl-box"><div class="tl-box-label">Target revenue</div><div class="tl-box-val">Rp 8 – 13 jt per bulan</div><div class="tl-box-note">Skincare: 50 order × Rp 65rb. Fashion: 50 pcs × Rp 110rb. Belum termasuk konsultan.</div></div>
+        </div>
+        <span class="cost-pill" style="background:var(--purple-lt);color:var(--purple)">Cash keluar fase ini: Rp 2 – 4 jt (iklan + ops)</span>
+      </div>
+    </div>
+
+    <div class="tl-item d3">
+      <div class="tl-gutter"><div class="tl-dot">3</div><div class="tl-line" style="background:transparent"></div></div>
+      <div class="tl-card">
+        <div class="tl-phase-tag">Bulan 4 hingga 6 — Optimasi & scale</div>
+        <div class="tl-card-title">Leverage aktif — reseller, afiliasi & klien konsultan pertama</div>
+        <div class="tl-grid">
+          <div class="tl-box"><div class="tl-box-label">Skincare</div><div class="tl-box-val">Rekrut 10–20 reseller</div><div class="tl-box-note">Buka program reseller. Aktifkan afiliasi TikTok. Restock SKU terlaris. Target 150+ order per bulan.</div></div>
+          <div class="tl-box"><div class="tl-box-label">Fashion Allan & Ray</div><div class="tl-box-val">Drop 002 & Drop 003</div><div class="tl-box-note">Naikkan kuantitas berdasarkan demand drop sebelumnya. Pertimbangkan kolaborasi brand lokal lain.</div></div>
+          <div class="tl-box"><div class="tl-box-label">Konsultan ADC</div><div class="tl-box-val">Ambil klien pertama</div><div class="tl-box-note">Gunakan case study skincare + fashion sebagai portofolio. Target 1–2 klien paket Rp 5–10 jt.</div></div>
+          <div class="tl-box"><div class="tl-box-label">Target revenue total</div><div class="tl-box-val">Rp 23 – 50 jt per bulan</div><div class="tl-box-note">3 stream aktif: skincare + fashion + konsultan. Balik modal investasi awal di bulan ini.</div></div>
+        </div>
+        <span class="cost-pill" style="background:var(--green-lt);color:var(--green)">Target balik modal di bulan ke-4 atau ke-5</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CASHFLOW -->
+<div id="sec-cashflow" class="section">
+  <div class="sec-header">
+    <div class="sec-tag">Aliran Dana</div>
+    <div class="sec-title">Cashflow per fase</div>
+    <div class="sec-desc">Rincian setiap rupiah yang keluar — kapan, untuk apa, dan berapa besar.</div>
+  </div>
+
+  <div class="cf-section">
+    <div class="cf-section-title">Fase 0 — Persiapan (Minggu 1–2) · Rp 1,5–3 jt</div>
+    <div class="bar-row"><div class="bar-label">Sampel pabrik</div><div class="bar-track"><div class="bar-fill" style="width:35%;background:#9FE1CB"><span style="color:#085041">Rp 500rb–1 jt</span></div></div><div class="bar-note">sekali</div></div>
+    <div class="bar-row"><div class="bar-label">Daftar merek DJKI</div><div class="bar-track"><div class="bar-fill" style="width:55%;background:#9FE1CB"><span style="color:#085041">Rp 1,6 jt</span></div></div><div class="bar-note">2 brand</div></div>
+    <div class="bar-row"><div class="bar-label">NIB + BPOM akun</div><div class="bar-track"><div class="bar-fill" style="width:6%;background:#C0DD97"><span style="color:#27500A">Gratis</span></div></div><div class="bar-note">online</div></div>
+    <div class="bar-row"><div class="bar-label">Desain awal Canva</div><div class="bar-track"><div class="bar-fill" style="width:8%;background:#C0DD97"><span style="color:#27500A">Rp 80rb</span></div></div><div class="bar-note">bulanan</div></div>
+  </div>
+
+  <div class="cf-section">
+    <div class="cf-section-title">Fase 1 — Produksi (Bulan 1) · Rp 6–10 jt</div>
+    <div class="bar-row"><div class="bar-label">Stok skincare</div><div class="bar-track"><div class="bar-fill" style="width:75%;background:#FAC775"><span style="color:#633806">Rp 4–6 jt</span></div></div><div class="bar-note">200 pcs</div></div>
+    <div class="bar-row"><div class="bar-label">Kemasan skincare</div><div class="bar-track"><div class="bar-fill" style="width:22%;background:#FAC775"><span style="color:#633806">Rp 500rb–1 jt</span></div></div><div class="bar-note">cetak</div></div>
+    <div class="bar-row"><div class="bar-label">BPOM notifikasi</div><div class="bar-track"><div class="bar-fill" style="width:14%;background:#FAC775"><span style="color:#633806">Rp 1 jt</span></div></div><div class="bar-note">2 produk</div></div>
+    <div class="bar-row"><div class="bar-label">Konveksi Allan & Ray</div><div class="bar-track"><div class="bar-fill" style="width:40%;background:#FAC775"><span style="color:#633806">Rp 2–3 jt</span></div></div><div class="bar-note">72 pcs</div></div>
+    <div class="bar-row"><div class="bar-label">Foto produk</div><div class="bar-track"><div class="bar-fill" style="width:10%;background:#FAC775"><span style="color:#633806">Rp 300–500rb</span></div></div><div class="bar-note">sekali</div></div>
+    <div class="bar-row"><div class="bar-label">Tools digital</div><div class="bar-track"><div class="bar-fill" style="width:8%;background:#C0DD97"><span style="color:#27500A">Rp 200rb</span></div></div><div class="bar-note">bulanan</div></div>
+  </div>
+
+  <div class="cf-section">
+    <div class="cf-section-title">Fase 2–3 — Operasional bulanan · Rp 5–8,5 jt</div>
+    <div class="bar-row"><div class="bar-label">Restock produk</div><div class="bar-track"><div class="bar-fill" style="width:65%;background:#AFA9EC"><span style="color:#26215C">Rp 3–5 jt</span></div></div><div class="bar-note">per bulan</div></div>
+    <div class="bar-row"><div class="bar-label">Iklan Shopee/TikTok</div><div class="bar-track"><div class="bar-fill" style="width:30%;background:#AFA9EC"><span style="color:#26215C">Rp 1–2 jt</span></div></div><div class="bar-note">per bulan</div></div>
+    <div class="bar-row"><div class="bar-label">KOL nano</div><div class="bar-track"><div class="bar-fill" style="width:18%;background:#AFA9EC"><span style="color:#26215C">Rp 600rb–1 jt</span></div></div><div class="bar-note">per bulan</div></div>
+    <div class="bar-row"><div class="bar-label">Packing & kirim</div><div class="bar-track"><div class="bar-fill" style="width:10%;background:#AFA9EC"><span style="color:#26215C">Rp 500rb</span></div></div><div class="bar-note">per bulan</div></div>
+    <div class="bar-row"><div class="bar-label">Tools & langganan</div><div class="bar-track"><div class="bar-fill" style="width:6%;background:#C0DD97"><span style="color:#27500A">Rp 200–300rb</span></div></div><div class="bar-note">per bulan</div></div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div id="sec-modal" class="section">
+  <div class="sec-header">
+    <div class="sec-tag">Modal Awal</div>
+    <div class="sec-title">Total biaya yang diperlukan</div>
+    <div class="sec-desc">Rincian investasi awal yang dikeluarkan satu kali sebelum bisnis berjalan.</div>
+  </div>
+
+  <div class="metrics">
+    <div class="metric"><div class="metric-label">Modal minimum</div><div class="metric-val">Rp 11,5 jt</div><div class="metric-sub">Tanpa buffer</div></div>
+    <div class="metric"><div class="metric-label">Modal ideal</div><div class="metric-val">Rp 15 jt</div><div class="metric-sub">Dengan buffer 30%</div></div>
+    <div class="metric"><div class="metric-label">Buffer darurat</div><div class="metric-val">Rp 3–4 jt</div><div class="metric-sub">Retur, revisi, dll</div></div>
+    <div class="metric"><div class="metric-label">Target balik modal</div><div class="metric-val">Bulan 4–5</div><div class="metric-sub">Dari 3 stream</div></div>
+  </div>
+
+  <table class="tbl">
+    <thead><tr><th>Komponen</th><th>Minimum</th><th>Ideal</th><th>Keterangan</th></tr></thead>
+    <tbody>
+      <tr><td>Stok skincare (200 pcs × 2 SKU)</td><td>Rp 4 jt</td><td>Rp 6 jt</td><td class="muted">Harga/pcs Rp 10–15rb white label</td></tr>
+      <tr><td>Kemasan & branding skincare</td><td>Rp 500rb</td><td>Rp 1 jt</td><td class="muted">Stiker label, box, thank you card</td></tr>
+      <tr><td>Notifikasi BPOM (2 produk)</td><td>Rp 1 jt</td><td>Rp 1 jt</td><td class="muted">Rp 500rb per produk, resmi PNBP</td></tr>
+      <tr><td>Konveksi Allan & Ray (72 pcs)</td><td>Rp 1,8 jt</td><td>Rp 3 jt</td><td class="muted">Rp 25–40rb per pcs, 3 desain</td></tr>
+      <tr><td>Kemasan & foto fashion</td><td>Rp 300rb</td><td>Rp 700rb</td><td class="muted">Hang tag, plastik, sesi foto</td></tr>
+      <tr><td>Pendaftaran merek (2 brand)</td><td>Rp 3,2 jt</td><td>Rp 3,2 jt</td><td class="muted">Rp 1,6 jt per brand, kelas 3 DJKI</td></tr>
+      <tr><td>Sampel & riset pabrik</td><td>Rp 500rb</td><td>Rp 1 jt</td><td class="muted">Biaya sampel + ongkir dari pabrik</td></tr>
+      <tr><td>Tools digital & setup</td><td>Rp 200rb</td><td>Rp 500rb</td><td class="muted">Canva Pro, ring light bekas, dll</td></tr>
+      <tr class="hl"><td>TOTAL MODAL AWAL</td><td>Rp 11,5 jt</td><td>Rp 16,4 jt</td><td>Rekomendasi siapkan Rp 15 jt</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note-box">
+    <strong>Tips alokasi modal</strong>
+    Pisahkan rekening dari awal: (1) rekening operasional skincare, (2) rekening Allan & Ray, (3) rekening konsultan ADC. Ini mencegah cashflow tercampur dan memudahkan laporan keuangan per entitas nantinya.
+  </div>
+</div>
+
+<!-- OPERASIONAL -->
+<div id="sec-ops" class="section">
+  <div class="sec-header">
+    <div class="sec-tag">Biaya Rutin</div>
+    <div class="sec-title">Operasional bulanan</div>
+    <div class="sec-desc">Estimasi biaya yang keluar setiap bulan setelah bisnis berjalan. Harus ditutup oleh revenue sebelum bulan ke-3.</div>
+  </div>
+
+  <table class="tbl">
+    <thead><tr><th>Komponen</th><th>Skincare</th><th>Allan & Ray</th><th>Total/bulan</th></tr></thead>
+    <tbody>
+      <tr><td>Restock produk / produksi</td><td>Rp 2–3 jt</td><td>Rp 1–2 jt</td><td>Rp 3–5 jt</td></tr>
+      <tr><td>Iklan berbayar (Shopee/TikTok)</td><td>Rp 500rb–1 jt</td><td>Rp 500rb–1 jt</td><td>Rp 1–2 jt</td></tr>
+      <tr><td>KOL nano / afiliasi produk</td><td>Rp 300–500rb</td><td>Rp 300–500rb</td><td>Rp 600rb–1 jt</td></tr>
+      <tr><td>Packing & bahan pengiriman</td><td>Rp 300rb</td><td>Rp 200rb</td><td>Rp 500rb</td></tr>
+      <tr><td>Tools & langganan digital</td><td colspan="2" style="text-align:center;color:var(--ink2)">Rp 200–300rb (shared dua brand)</td><td>Rp 300rb</td></tr>
+      <tr><td>Fee platform (Shopee dll)</td><td>~3% omset</td><td>~3% omset</td><td>Dari revenue</td></tr>
+      <tr><td>Ongkos kirim selisih / retur</td><td>Rp 100–200rb</td><td>Rp 100rb</td><td>Rp 200–300rb</td></tr>
+      <tr class="hl"><td>TOTAL OPERASIONAL</td><td>Rp 3,2–4,7 jt</td><td>Rp 2–3,3 jt</td><td>Rp 5,2–8 jt</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-tag" style="margin:1.25rem 0 .5rem">Catatan penting</div>
+  <div class="note-box">
+    <strong>Reinvestasikan 50% profit di bulan 2–3</strong>
+    Jangan tarik semua keuntungan di bulan pertama. Reinvestasikan 50% ke restock produk, 20% untuk buffer darurat, 30% baru bisa diambil. Ini kunci agar bisnis tumbuh tanpa kehabisan modal kerja.
+  </div>
+  <div class="note-box" style="background:var(--amber-lt);border-color:rgba(212,162,74,.25);border-left-color:var(--amber);margin-top:.75rem">
+    <strong>Waspadai biaya tersembunyi</strong>
+    Retur produk (siapkan 5% dari omset), ongkir selisih COD, biaya desain revisi kemasan, dan biaya platform yang naik saat promo besar. Sisihkan Rp 500rb–1 jt per bulan sebagai dana tak terduga.
+  </div>
+</div>
+
+<!-- PROYEKSI -->
+<div id="sec-proyeksi" class="section">
+  <div class="sec-header">
+    <div class="sec-tag">Target Revenue</div>
+    <div class="sec-title">Proyeksi 3 stream bisnis</div>
+    <div class="sec-desc">Estimasi konservatif — realistis dicapai dengan eksekusi konsisten dan leverage aktif.</div>
+  </div>
+
+  <div class="stream-grid">
+    <div class="stream-card">
+      <div class="stream-icon">🧴</div>
+      <div class="stream-name">Skincare</div>
+      <div class="stream-row"><span class="k">Bulan 2–3</span><span class="v">Rp 3–5 jt</span></div>
+      <div class="stream-row"><span class="k">Bulan 4–6</span><span class="v">Rp 10–20 jt</span></div>
+      <div class="stream-divider"></div>
+      <div class="stream-row"><span class="k">Harga jual rata-rata</span><span class="v">Rp 65rb</span></div>
+      <div class="stream-row"><span class="k">Margin bersih</span><span class="v">~50–60%</span></div>
+      <div class="stream-row"><span class="k">Leverage utama</span><span class="v">Reseller + afiliasi</span></div>
+    </div>
+    <div class="stream-card">
+      <div class="stream-icon">👗</div>
+      <div class="stream-name">Fashion Allan & Ray</div>
+      <div class="stream-row"><span class="k">Bulan 2–3</span><span class="v">Rp 5–8 jt</span></div>
+      <div class="stream-row"><span class="k">Bulan 4–6</span><span class="v">Rp 8–15 jt</span></div>
+      <div class="stream-divider"></div>
+      <div class="stream-row"><span class="k">Harga jual rata-rata</span><span class="v">Rp 110rb</span></div>
+      <div class="stream-row"><span class="k">Margin bersih</span><span class="v">~55–65%</span></div>
+      <div class="stream-row"><span class="k">Leverage utama</span><span class="v">Drop system + TikTok</span></div>
+    </div>
+    <div class="stream-card">
+      <div class="stream-icon">💼</div>
+      <div class="stream-name">Konsultan ADC</div>
+      <div class="stream-row"><span class="k">Bulan 2–3</span><span class="v">Rp 0</span></div>
+      <div class="stream-row"><span class="k">Bulan 4–6</span><span class="v">Rp 5–15 jt</span></div>
+      <div class="stream-divider"></div>
+      <div class="stream-row"><span class="k">Harga paket</span><span class="v">Rp 5–25 jt</span></div>
+      <div class="stream-row"><span class="k">Margin bersih</span><span class="v">~80–90%</span></div>
+      <div class="stream-row"><span class="k">Leverage utama</span><span class="v">Case study nyata</span></div>
+    </div>
+  </div>
+
+  <table class="tbl" style="margin-top:1.25rem">
+    <thead><tr><th>Periode</th><th>Skincare</th><th>Fashion</th><th>Konsultan</th><th>Total</th></tr></thead>
+    <tbody>
+      <tr><td>Bulan 1</td><td class="muted">–</td><td class="muted">–</td><td class="muted">–</td><td class="muted">Investasi</td></tr>
+      <tr><td>Bulan 2</td><td>Rp 3 jt</td><td>Rp 5 jt</td><td class="muted">–</td><td>Rp 8 jt</td></tr>
+      <tr><td>Bulan 3</td><td>Rp 5 jt</td><td>Rp 8 jt</td><td class="muted">–</td><td>Rp 13 jt</td></tr>
+      <tr><td>Bulan 4</td><td>Rp 8 jt</td><td>Rp 10 jt</td><td>Rp 5 jt</td><td>Rp 23 jt</td></tr>
+      <tr><td>Bulan 5</td><td>Rp 12 jt</td><td>Rp 12 jt</td><td>Rp 10 jt</td><td>Rp 34 jt</td></tr>
+      <tr><td>Bulan 6</td><td>Rp 20 jt</td><td>Rp 15 jt</td><td>Rp 15 jt</td><td>Rp 50 jt</td></tr>
+      <tr class="hl2"><td>Total 6 bulan</td><td>Rp 48 jt</td><td>Rp 50 jt</td><td>Rp 30 jt</td><td>Rp 128 jt</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note-box">
+    <strong>Kunci mencapai proyeksi ini</strong>
+    (1) Konten TikTok konsisten minimal 5 post per minggu per brand. (2) Reseller aktif minimal 10 orang di bulan ke-4. (3) Afiliasi TikTok diaktifkan sejak bulan ke-2. (4) Klien konsultan ADC pertama masuk di bulan ke-4 berbekal case study skincare dan fashion yang sudah berjalan.
+  </div>
+</div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-brand">Timeline & Cashflow Bisnis — Milzon</div>
+  <div style="color:rgba(255,255,255,.4);font-size:13px;margin:.3rem 0">Dirancang & dikonsep oleh</div>
+  <div style="color:rgba(255,255,255,.8);font-size:14px;font-family:'DM Serif Display',serif">Milzon — Architecture Design Concept</div>
+  <div class="footer-copy">© 2026 Milzon · Architecture Design Concept · All rights reserved · PT Allanray Teknologi Semesta</div>
+</footer>
+
+<script>
+function showSection(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('sec-'+id).classList.add('active');
+  event.currentTarget.classList.add('active');
+  window.scrollTo({top:document.querySelector('.nav-strip').offsetTop-10,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
