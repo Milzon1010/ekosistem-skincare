@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panduan Lengkap Bisnis Skincare & Fashion — Milzon</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F5F0;--bg2:#EEEAE2;--bg3:#fff;
+  --ink:#1A1814;--ink2:#5A5650;--ink3:#9A958E;
+  --accent:#C85A2A;--accent2:#E8956A;
+  --gold:#D4A24A;--teal:#2A7A6A;--blue:#2A5A8A;--purple:#6A3A8A;
+  --border:rgba(26,24,20,.10);--border2:rgba(26,24,20,.18);
+  --r:14px;--r-sm:8px;
+  --shadow:0 2px 12px rgba(26,24,20,.08);--shadow-lg:0 8px 32px rgba(26,24,20,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+.hero{background:var(--ink);color:#fff;padding:3rem 1.5rem 2.5rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(255,255,255,.02) 40px,rgba(255,255,255,.02) 41px)}
+.hero-tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:rgba(200,90,42,.25);color:var(--accent2);padding:4px 14px;border-radius:20px;margin-bottom:1rem;border:1px solid rgba(200,90,42,.3);position:relative}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,5vw,3rem);font-weight:400;line-height:1.1;position:relative;margin-bottom:.75rem}
+.hero h1 em{color:var(--accent2);font-style:italic}
+.hero p{font-size:14px;color:rgba(255,255,255,.6);max-width:520px;margin:0 auto 1.5rem;line-height:1.6;position:relative}
+.hero-meta{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;font-size:12px;color:rgba(255,255,255,.4);position:relative}
+.nav-strip{background:var(--bg3);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;overflow-x:auto;scrollbar-width:none}
+.nav-strip::-webkit-scrollbar{display:none}
+.nav-inner{display:flex;min-width:max-content;padding:0 1rem}
+.nav-btn{padding:.75rem 1.1rem;font-size:13px;font-weight:500;color:var(--ink2);border:none;background:none;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .2s;font-family:'Plus Jakarta Sans',sans-serif}
+.nav-btn:hover{color:var(--ink)}
+.nav-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
+.main{max-width:920px;margin:0 auto;padding:1.5rem 1rem 4rem}
+.section{display:none;animation:fadeIn .25s ease}
+.section.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.section-header{margin-bottom:1.5rem}
+.section-num{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:.3rem}
+.section-title{font-family:'DM Serif Display',serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:400;color:var(--ink);line-height:1.2;margin-bottom:.5rem}
+.section-desc{font-size:14px;color:var(--ink2);line-height:1.7;max-width:640px}
+/* CARDS */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:12px;margin-bottom:1rem}
+.card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:1.1rem 1.2rem;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
+.card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--card-accent,var(--accent));transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+.card:hover::after,.card.open::after{transform:scaleX(1)}
+.card:hover{border-color:var(--border2);box-shadow:var(--shadow);transform:translateY(-2px)}
+.card.open{border-color:var(--card-accent,var(--accent));box-shadow:var(--shadow-lg)}
+.card-icon{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:.65rem;font-size:17px;background:var(--card-bg,#F5EDE8);color:var(--card-accent,var(--accent))}
+.card h3{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:2px}
+.card p{font-size:11px;color:var(--ink3);line-height:1.5}
+.card-arrow{position:absolute;top:1rem;right:1rem;font-size:15px;color:var(--ink3);transition:transform .2s}
+.card.open .card-arrow{transform:rotate(90deg);color:var(--card-accent,var(--accent))}
+/* DETAIL */
+.detail{background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r);margin-bottom:1.5rem;overflow:hidden;animation:slideDown .25s ease}
+@keyframes slideDown{from{opacity:0}to{opacity:1}}
+.detail-header{padding:1rem 1.3rem .75rem;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+.detail-header h3{font-size:15px;font-weight:600;color:var(--ink)}
+.detail-close{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:3px 10px;font-size:12px;color:var(--ink2);cursor:pointer;white-space:nowrap;font-family:'Plus Jakarta Sans',sans-serif;flex-shrink:0}
+.detail-close:hover{background:var(--bg2)}
+.detail-body{padding:1rem 1.3rem 1.3rem}
+.items-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,210px),1fr));gap:10px;margin-bottom:1rem}
+.d-item{background:var(--bg);border-radius:var(--r-sm);padding:.8rem 1rem;border:1px solid var(--border)}
+.d-item-label{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);margin-bottom:3px}
+.d-item-val{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.d-item-note{font-size:12px;color:var(--ink2);line-height:1.5}
+.badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:.75rem}
+.badge{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px}
+.b-orange{background:#FDEEDE;color:#8A4010}
+.b-green{background:#E6F4ED;color:#1A5A35}
+.b-blue{background:#E4EEF8;color:#1A3A6A}
+.b-teal{background:#E2F2EE;color:#1A5248}
+.b-gold{background:#FBF1DD;color:#7A5A10}
+.b-purple{background:#F0E8F8;color:#4A1A7A}
+/* TABLES */
+.tbl{width:100%;border-collapse:collapse;font-size:13px;margin:1rem 0}
+.tbl th{background:var(--ink);color:#fff;padding:.6rem .85rem;text-align:left;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.tbl th:first-child{border-radius:var(--r-sm) 0 0 0}
+.tbl th:last-child{border-radius:0 var(--r-sm) 0 0}
+.tbl td{padding:.65rem .85rem;border-bottom:1px solid var(--border);color:var(--ink);line-height:1.5;vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:nth-child(even) td{background:var(--bg)}
+.tbl tr.hl td{background:#FBF1DD;font-weight:600}
+.tbl tr.hl2 td{background:#E6F4ED;font-weight:600}
+/* TIMELINE */
+.tl{margin:1rem 0}
+.tl-item{display:flex;gap:14px;padding-bottom:1.2rem;position:relative}
+.tl-item:not(:last-child)::after{content:'';position:absolute;left:14px;top:30px;width:2px;bottom:0;background:var(--border2)}
+.tl-dot{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;z-index:1;border:2px solid var(--accent);color:var(--accent);background:var(--bg3)}
+.tl-dot.done{background:var(--teal);border-color:var(--teal);color:#fff}
+.tl-dot.gold{background:var(--gold);border-color:var(--gold);color:#fff}
+.tl-dot.purple{background:var(--purple);border-color:var(--purple);color:#fff}
+.tl-content{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-sm);padding:.85rem 1rem;flex:1}
+.tl-phase{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin-bottom:3px}
+.tl-title{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:4px}
+.tl-body{font-size:12px;color:var(--ink2);line-height:1.7}
+/* SUMMARY */
+.sum-card{background:var(--ink);color:#fff;border-radius:var(--r);padding:1.5rem;margin:1.5rem 0}
+.sum-card h3{font-family:'DM Serif Display',serif;font-size:1.4rem;font-weight:400;margin-bottom:.5rem}
+.sum-card p{font-size:13px;color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:1rem}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px}
+.stat{background:rgba(255,255,255,.08);border-radius:10px;padding:.7rem .9rem}
+.stat-val{font-size:1.2rem;font-weight:700;color:var(--accent2);margin-bottom:1px}
+.stat-label{font-size:11px;color:rgba(255,255,255,.5)}
+/* FLOW */
+.flow-step{display:flex;gap:12px;align-items:flex-start;padding:.85rem 1rem;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-sm);margin-bottom:8px;transition:all .2s}
+.flow-step:hover{border-color:var(--border2);box-shadow:var(--shadow)}
+.flow-num{width:27px;height:27px;border-radius:50%;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.fn-orange{background:var(--accent);color:#fff}
+.fn-teal{background:var(--teal);color:#fff}
+.fn-gold{background:var(--gold);color:#fff}
+.fn-blue{background:var(--blue);color:#fff}
+.fn-purple{background:var(--purple);color:#fff}
+.flow-con{text-align:center;color:var(--ink3);font-size:14px;margin:-2px 0;padding-left:14px}
+.flow-content h4{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:2px}
+.flow-content p{font-size:12px;color:var(--ink2);line-height:1.5}
+/* PABRIK CARD */
+.pabrik-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:14px;margin:1rem 0}
+.pabrik-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:1.1rem 1.2rem;transition:all .2s}
+.pabrik-card:hover{border-color:var(--border2);box-shadow:var(--shadow)}
+.pabrik-name{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:3px}
+.pabrik-loc{font-size:11px;color:var(--ink3);margin-bottom:.65rem}
+.pabrik-tag{display:inline-block;font-size:10px;font-weight:600;padding:2px 8px;border-radius:12px;margin:2px 2px 2px 0}
+.pabrik-row{display:flex;gap:8px;margin-top:.65rem;flex-wrap:wrap}
+.pabrik-info{font-size:12px;color:var(--ink2);line-height:1.5;margin-top:.5rem}
+/* DOKUMEN CHECKLIST */
+.checklist{list-style:none;margin:1rem 0}
+.checklist li{display:flex;gap:10px;padding:.8rem 1rem;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r-sm);margin-bottom:7px;font-size:13px;color:var(--ink);line-height:1.5;align-items:flex-start}
+.checklist li .ck-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+.checklist li .ck-body{}
+.checklist li .ck-title{font-weight:600;margin-bottom:2px}
+.checklist li .ck-note{font-size:12px;color:var(--ink2)}
+/* KONTRAK */
+.kontrak-box{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:1.2rem 1.4rem;margin-bottom:1rem;font-size:13px;line-height:1.8;color:var(--ink2)}
+.kontrak-box h4{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:.5rem}
+/* FASHION */
+.lev-item{display:flex;align-items:flex-start;gap:12px;padding:.85rem 1rem;border-radius:var(--r-sm);margin-bottom:6px;border-left:4px solid transparent}
+.lev-item.l1{background:#FBF1DD;border-color:var(--gold)}
+.lev-item.l2{background:#E6F4ED;border-color:var(--teal)}
+.lev-item.l3{background:#FDEEDE;border-color:var(--accent)}
+.lev-item.l4{background:#E4EEF8;border-color:var(--blue)}
+.lev-item.l5{background:#F0E8F8;border-color:var(--purple)}
+.lev-icon{font-size:20px;flex-shrink:0}
+.lev-title{font-size:13px;font-weight:600;color:var(--ink)}
+.lev-desc{font-size:12px;color:var(--ink2);line-height:1.4;margin-top:2px}
+/* FOOTER */
+.footer{background:var(--ink);text-align:center;padding:2rem 1rem;font-size:12px;color:rgba(255,255,255,.35)}
+.footer strong{color:rgba(255,255,255,.8);font-size:15px;display:block;margin-bottom:.25rem;font-family:'DM Serif Display',serif;font-weight:400}
+.footer .copy{margin-top:.5rem;font-size:11px;color:rgba(255,255,255,.25)}
+@media(max-width:480px){
+  .hero{padding:2rem 1rem 1.75rem}
+  .main{padding:1rem .75rem 3rem}
+  .cards,.pabrik-grid{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .items-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-tag">📋 Panduan Bisnis Lengkap</div>
+  <h1>Skincare & Fashion<br><em>Allan & Ray</em></h1>
+  <p>Izin, pabrik, dokumen, kontrak konsultan, dan ekosistem fashion Gen Z — semua dalam satu panduan.</p>
+  <div class="hero-meta">
+    <span>📜 Izin & Legalitas</span>
+    <span>🏭 Daftar Pabrik</span>
+    <span>📄 Dokumen & Kontrak</span>
+    <span>👗 Fashion Gen Z</span>
+  </div>
+</div>
+
+<nav class="nav-strip">
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="showSection('overview')">Overview</button>
+    <button class="nav-btn" onclick="showSection('izin')">1️⃣ Izin & Dokumen</button>
+    <button class="nav-btn" onclick="showSection('pabrik')">2️⃣ Pabrik Maklon</button>
+    <button class="nav-btn" onclick="showSection('kontrak')">3️⃣ Kontrak Konsultan</button>
+    <button class="nav-btn" onclick="showSection('fashion')">4️⃣ Fashion Gen Z</button>
+  </div>
+</nav>
+
+<div class="main">
+
+<!-- OVERVIEW -->
+<div id="sec-overview" class="section active">
+  <div class="section-header">
+    <div class="section-num">Peta Jalan</div>
+    <div class="section-title">4 hal yang perlu dikuasai</div>
+    <div class="section-desc">Dari legalitas produk hingga ekosistem fashion — ini adalah fondasi bisnis yang bisa dijalankan sendiri, lalu dijual sebagai jasa konsultasi.</div>
+  </div>
+  <div class="lev-item l1"><div class="lev-icon">📜</div><div><div class="lev-title">No. 1 — Izin & Dokumen Skincare</div><div class="lev-desc">NIB, BPOM, Halal, merek, GMP. Urutan benar = hemat waktu & biaya. Salah urutan = ulang dari awal.</div></div></div>
+  <div class="lev-item l2"><div class="lev-icon">🏭</div><div><div class="lev-title">No. 2 — Daftar Pabrik Maklon Terpercaya</div><div class="lev-desc">7 pabrik rekomen dengan spesifikasi MOQ, lokasi, layanan, dan kontak. Dari skala kecil hingga enterprise.</div></div></div>
+  <div class="lev-item l3"><div class="lev-icon">📄</div><div><div class="lev-title">No. 3 — Kontrak & Dokumen Konsultan</div><div class="lev-desc">Template kontrak, proposal penawaran, invoice, dan SOP untuk jual jasa Architecture Design Concept.</div></div></div>
+  <div class="lev-item l4"><div class="lev-icon">👗</div><div><div class="lev-title">No. 4 — Ekosistem Fashion Gen Z (Allan & Ray)</div><div class="lev-desc">Brand concept, supplier fashion lokal, channel TikTok/IG, leverage model, dan roadmap untuk anak kamu.</div></div></div>
+  <div class="sum-card">
+    <h3>Strategi besar Milzon</h3>
+    <p>Jalankan sendiri dulu → dokumentasi prosesnya → buktikan berhasil → jual sebagai paket konsultasi "done-for-you" ke klien lain.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">2–3 bln</div><div class="stat-label">Target balik modal skincare</div></div>
+      <div class="stat"><div class="stat-val">Rp 5–15 jt</div><div class="stat-label">Harga jasa per klien</div></div>
+      <div class="stat"><div class="stat-val">3 entitas</div><div class="stat-label">Di bawah PT Allanray</div></div>
+      <div class="stat"><div class="stat-val">∞</div><div class="stat-label">Leverage model</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- IZIN & DOKUMEN -->
+<div id="sec-izin" class="section">
+  <div class="section-header">
+    <div class="section-num">No. 1 — Izin & Legalitas</div>
+    <div class="section-title">Dokumen wajib bisnis skincare</div>
+    <div class="section-desc">Urus sesuai urutan ini — jangan loncat-loncat. Setiap izin adalah prasyarat izin berikutnya.</div>
+  </div>
+
+  <h3 style="font-size:13px;font-weight:600;color:var(--ink2);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.75rem">Urutan pengurusan yang benar</h3>
+  <div class="tl">
+    <div class="tl-item">
+      <div class="tl-dot done">1</div>
+      <div class="tl-content">
+        <div class="tl-phase">Langkah Pertama — GRATIS, 1 hari</div>
+        <div class="tl-title">NIB — Nomor Induk Berusaha</div>
+        <div class="tl-body">Daftar di <strong>oss.go.id</strong> → pilih KBLI 20232 (industri kosmetik) atau 47991 (perdagangan online). NIB adalah syarat untuk semua izin selanjutnya. Tanpa NIB, tidak bisa daftar BPOM.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot done">2</div>
+      <div class="tl-content">
+        <div class="tl-phase">Langkah Kedua — Rp 0, jika via PT yang sudah ada</div>
+        <div class="tl-title">Akun Produsen BPOM</div>
+        <div class="tl-body">Daftar di <strong>notifkos.pom.go.id</strong> dengan data perusahaan & NIB. Buat akun terlebih dahulu sebelum bisa notifikasi produk. Proses verifikasi akun 3–7 hari kerja.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">3</div>
+      <div class="tl-content">
+        <div class="tl-phase">Langkah Ketiga — Rp 500rb per produk (ASEAN)</div>
+        <div class="tl-title">Notifikasi BPOM per Produk</div>
+        <div class="tl-body">Upload: formula produk, data safety, CoA bahan baku, label kemasan, sertifikat GMP pabrik. Berlaku <strong>3 tahun</strong>, bisa diperpanjang. Proses <strong>14 hari kerja</strong> jika dokumen lengkap. Tips: pakai pabrik maklon yang sudah ber-GMP BPOM — dokumen lebih mudah.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot gold">4</div>
+      <div class="tl-content">
+        <div class="tl-phase">Langkah Keempat — Rp 0 s/d Rp 2 jt</div>
+        <div class="tl-title">Sertifikasi Halal MUI / BPJPH</div>
+        <div class="tl-body">Daftar di <strong>ptsp.halal.go.id</strong>. Dokumen: daftar bahan baku + sertifikat halal dari supplier bahan. Proses 1–3 bulan. <strong>Nilai jual besar</strong> untuk pasar Indonesia. Jika pabrik maklon sudah halal, proses jauh lebih cepat.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot purple">5</div>
+      <div class="tl-content">
+        <div class="tl-phase">Langkah Kelima — Rp 1,6–4 jt per kelas</div>
+        <div class="tl-title">Pendaftaran Merek (HKI)</div>
+        <div class="tl-body">Daftar di <strong>merek.dgip.go.id</strong>. Kelas 3 (kosmetik) wajib. Proses 12–18 bulan. Sertifikat berlaku 10 tahun. <strong>Urus ini secepatnya</strong> — merek didaftarkan oleh yang pertama, bukan yang pertama pakai.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">6</div>
+      <div class="tl-content">
+        <div class="tl-phase">Opsional — Rp 500rb–2 jt/tahun</div>
+        <div class="tl-title">PIRT & Izin Tambahan</div>
+        <div class="tl-body">PIRT (Pangan Industri Rumah Tangga) hanya jika ada produk pangan/suplemen. Untuk skincare murni tidak diperlukan. SNI opsional tapi jadi nilai tambah untuk masuk retail modern (Indomaret, Alfamart, Guardian).</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-size:13px;font-weight:600;color:var(--ink2);text-transform:uppercase;letter-spacing:.08em;margin:1.5rem 0 .75rem">Checklist dokumen yang disiapkan</h3>
+  <div class="cards">
+    <div class="card" style="--card-accent:#C85A2A;--card-bg:#F5EDE8" onclick="toggleDetail(this,'dok_perusahaan')">
+      <div class="card-icon">🏢</div>
+      <h3>Dokumen perusahaan</h3>
+      <p>Legalitas badan usaha</p>
+      <span class="card-arrow">›</span>
+    </div>
+    <div class="card" style="--card-accent:#2A7A6A;--card-bg:#E2F2EE" onclick="toggleDetail(this,'dok_bpom')">
+      <div class="card-icon">🔬</div>
+      <h3>Dokumen BPOM</h3>
+      <p>Notifikasi per produk</p>
+      <span class="card-arrow">›</span>
+    </div>
+    <div class="card" style="--card-accent:#D4A24A;--card-bg:#FBF4E5" onclick="toggleDetail(this,'dok_halal')">
+      <div class="card-icon">☪️</div>
+      <h3>Dokumen Halal</h3>
+      <p>Sertifikasi BPJPH</p>
+      <span class="card-arrow">›</span>
+    </div>
+    <div class="card" style="--card-accent:#2A5A8A;--card-bg:#E4EEF8" onclick="toggleDetail(this,'dok_merek')">
+      <div class="card-icon">™️</div>
+      <h3>Pendaftaran Merek</h3>
+      <p>Proteksi HKI</p>
+      <span class="card-arrow">›</span>
+    </div>
+  </div>
+  <div id="detail-izin" class="detail" style="display:none"></div>
+
+  <table class="tbl" style="margin-top:1.5rem">
+    <thead><tr><th>Izin</th><th>Biaya Resmi</th><th>Waktu</th><th>Berlaku</th><th>Prioritas</th></tr></thead>
+    <tbody>
+      <tr><td>NIB (OSS)</td><td>Gratis</td><td>1 hari</td><td>Selamanya</td><td>🔴 Pertama</td></tr>
+      <tr><td>Akun BPOM</td><td>Gratis</td><td>3–7 hari</td><td>Aktif selama usaha</td><td>🔴 Kedua</td></tr>
+      <tr><td>Notifikasi BPOM/produk</td><td>Rp 500rb</td><td>14 hari kerja</td><td>3 tahun</td><td>🔴 Wajib</td></tr>
+      <tr><td>Sertifikasi Halal</td><td>Rp 0–2 jt</td><td>1–3 bulan</td><td>4 tahun</td><td>🟡 Penting</td></tr>
+      <tr><td>Pendaftaran Merek</td><td>Rp 1,6–4 jt/kelas</td><td>12–18 bulan</td><td>10 tahun</td><td>🟡 Secepatnya</td></tr>
+      <tr><td>SNI Kosmetik</td><td>Rp 2–5 jt</td><td>3–6 bulan</td><td>3 tahun</td><td>🟢 Opsional</td></tr>
+      <tr class="hl"><td colspan="5">💡 Tips: Pilih pabrik maklon yang sudah GMP + BPOM — dokumen 50% lebih sedikit</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- PABRIK -->
+<div id="sec-pabrik" class="section">
+  <div class="section-header">
+    <div class="section-num">No. 2 — Pabrik Maklon</div>
+    <div class="section-title">Daftar pabrik skincare terpercaya</div>
+    <div class="section-desc">7 pabrik terpilih — dari skala UMKM hingga enterprise. Semua sudah punya GMP dan berpengalaman dengan brand lokal.</div>
+  </div>
+
+  <div class="pabrik-grid">
+    <div class="pabrik-card">
+      <div class="pabrik-name">🏆 ASIA SKINLAB</div>
+      <div class="pabrik-loc">📍 Gresik, Jawa Timur</div>
+      <div class="pabrik-info">Pengalaman 11 tahun, sudah bantu 1000+ brand lokal & internasional. One-stop service: formulasi, kemasan, BPOM. Cocok untuk pemula hingga brand besar.</div>
+      <div class="pabrik-row">
+        <span class="pabrik-tag b-green">MOQ Fleksibel</span>
+        <span class="pabrik-tag b-blue">BPOM ✓</span>
+        <span class="pabrik-tag b-gold">Halal ✓</span>
+        <span class="pabrik-tag b-orange">Urus BPOM</span>
+      </div>
+      <div class="pabrik-info" style="margin-top:.5rem">📞 +62 817-975-9777 | asiaskinlab.com</div>
+    </div>
+    <div class="pabrik-card">
+      <div class="pabrik-name">🌟 COSMAX Indonesia</div>
+      <div class="pabrik-loc">📍 Jakarta / Cikarang</div>
+      <div class="pabrik-info">Produsen ODM/OEM No. 1 dunia (K-Beauty). Fasilitas riset kelas dunia. Cocok untuk brand yang ingin kualitas premium dan formulasi inovatif.</div>
+      <div class="pabrik-row">
+        <span class="pabrik-tag b-blue">Enterprise</span>
+        <span class="pabrik-tag b-green">GMP WHO</span>
+        <span class="pabrik-tag b-purple">K-Beauty</span>
+      </div>
+      <div class="pabrik-info" style="margin-top:.5rem">🌐 cosmax.co.id</div>
+    </div>
+    <div class="pabrik-card">
+      <div class="pabrik-name">⭐ PT Maklon Kosmetik Indonesia</div>
+      <div class="pabrik-loc">📍 Surabaya, Jawa Timur</div>
+      <div class="pabrik-info">Berdiri 2023, fokus private label. MOQ mulai 1.000 pcs. Full service termasuk bantu HKI & BPOM. Waktu produksi ~90 hari kerja setelah sample approve.</div>
+      <div class="pabrik-row">
+        <span class="pabrik-tag b-orange">MOQ 1.000 pcs</span>
+        <span class="pabrik-tag b-blue">BPOM ✓</span>
+        <span class="pabrik-tag b-teal">HKI Support</span>
+      </div>
+      <div class="pabrik-info" style="margin-top:.5rem">🌐 maklonkosmetik.co.id</div>
+    </div>
+    <div class="pabrik-card">
+      <div class="pabrik-name">💎 MPM Beauty</div>
+      <div class="pabrik-loc">📍 Indonesia</div>
+      <div class="pabrik-info">Spesialis maklon kosmetik & skincare. MOQ 2.000 pcs dengan waktu produksi 3 bulan langsung jadi. Dikenal cepat dan efisien.</div>
+      <div class="pabrik-row">
+        <span class="pabrik-tag b-orange">MOQ 2.000 pcs</span>
+        <span class="pabrik-tag b-green">3 bulan jadi</span>
+      </div>
+      <div class="pabrik-info" style="margin-top:.5rem">📞 087780990415 | mpmbeauty.co.id</div>
+    </div>
+    <div class="pabrik-card">
+      <div class="pabrik-name">🌿 PT Tecnoglow Innovation</div>
+      <div class="pabrik-loc">📍 Indonesia</div>
+      <div class="pabrik-info">Fokus inovasi & R&D. Layanan lengkap dari riset hingga produksi. Cocok untuk brand yang ingin diferensiasi formula unik dan ingredient transparan.</div>
+      <div class="pabrik-row">
+        <span class="pabrik-tag b-teal">R&D Focus</span>
+        <span class="pabrik-tag b-green">GMP ✓</span>
+        <span class="pabrik-tag b-blue">Inovasi</span>
+      </div>
+      <div class="pabrik-info" style="margin-top:.5rem">🌐 tecnoglow.co.id</div>
+    </div>
+    <div class="pabrik-card">
+      <div class="pabrik-name">🧴 Mashmoshem (MMI)</div>
+      <div class="pabrik-loc">📍 Indonesia</div>
+      <div class="pabrik-info">One-stop service termasuk desain kemasan (logo, warna, label BPOM) dan pengurusan semua izin termasuk halal. Cocok untuk yang tidak mau ribet urusan legalitas.</div>
+      <div class="pabrik-row">
+        <span class="pabrik-tag b-orange">Full Service</span>
+        <span class="pabrik-tag b-gold">Desain ✓</span>
+        <span class="pabrik-tag b-green">Halal ✓</span>
+      </div>
+      <div class="pabrik-info" style="margin-top:.5rem">🌐 mashmoshem.co.id</div>
+    </div>
+    <div class="pabrik-card">
+      <div class="pabrik-name">✨ CV. Kecantikan Sejati</div>
+      <div class="pabrik-loc">📍 Indonesia</div>
+      <div class="pabrik-info">Layanan pelanggan terbaik + konsultasi branding & pemasaran produk. Cocok untuk pemula yang butuh guidance lebih dari sekadar produksi.</div>
+      <div class="pabrik-row">
+        <span class="pabrik-tag b-teal">Brand Consult</span>
+        <span class="pabrik-tag b-blue">Marketing</span>
+        <span class="pabrik-tag b-orange">Pemula OK</span>
+      </div>
+    </div>
+  </div>
+
+  <table class="tbl" style="margin-top:1.5rem">
+    <thead><tr><th>Pabrik</th><th>MOQ</th><th>Keunggulan</th><th>Cocok untuk</th></tr></thead>
+    <tbody>
+      <tr><td>Asia Skinlab</td><td>Fleksibel</td><td>1000+ klien, full service</td><td>Semua skala</td></tr>
+      <tr><td>Cosmax Indonesia</td><td>Besar</td><td>Kualitas premium, K-Beauty</td><td>Brand premium</td></tr>
+      <tr><td>PT Maklon Kosmetik ID</td><td>1.000 pcs</td><td>Bantu HKI & BPOM</td><td>UMKM serius</td></tr>
+      <tr><td>MPM Beauty</td><td>2.000 pcs</td><td>Cepat 3 bulan jadi</td><td>Butuh cepat</td></tr>
+      <tr><td>PT Tecnoglow</td><td>Medium</td><td>R&D & inovasi formula</td><td>Diferensiasi</td></tr>
+      <tr><td>Mashmoshem</td><td>Fleksibel</td><td>Full service + kemasan</td><td>Tidak mau ribet</td></tr>
+      <tr class="hl2"><td colspan="4">✅ Rekomendasi untuk mulai: Asia Skinlab (MOQ fleksibel, pengalaman terbanyak)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sum-card" style="margin-top:1.5rem">
+    <h3>Pertanyaan wajib saat hubungi pabrik</h3>
+    <p>Tanyakan ini sebelum deal dengan pabrik manapun:</p>
+    <div class="tl-body" style="color:rgba(255,255,255,.7);line-height:2">
+      1. Apakah pabrik sudah punya sertifikat GMP dari BPOM? <br>
+      2. Berapa MOQ minimum untuk produk yang saya inginkan? <br>
+      3. Apakah bisa bantu urus notifikasi BPOM? Berapa biaya tambahannya? <br>
+      4. Berapa lama dari tanda tangan kontrak hingga produk siap kirim? <br>
+      5. Apakah tersedia sampel sebelum produksi massal? Berapa biayanya? <br>
+      6. Apakah ada fasilitas custom formula atau hanya white label? <br>
+      7. Apakah bahan baku sudah bersertifikat halal?
+    </div>
+  </div>
+</div>
+
+<!-- KONTRAK KONSULTAN -->
+<div id="sec-kontrak" class="section">
+  <div class="section-header">
+    <div class="section-num">No. 3 — Jual Jasa Konsultasi</div>
+    <div class="section-title">Kontrak & dokumen konsultan</div>
+    <div class="section-desc">Setelah bisnis skincare & fashion kamu terbukti jalan, ini yang kamu jual ke klien — paket "Architecture Design Concept" lengkap.</div>
+  </div>
+
+  <h3 style="font-size:13px;font-weight:600;color:var(--ink2);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.75rem">Paket jasa yang bisa ditawarkan</h3>
+  <table class="tbl">
+    <thead><tr><th>Paket</th><th>Isi Deliverable</th><th>Harga</th><th>Waktu</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Starter</strong></td><td>Konsep bisnis + ekosistem dokumen + roadmap</td><td>Rp 3–5 jt</td><td>3–5 hari</td></tr>
+      <tr><td><strong>Standard</strong></td><td>Starter + interactive tools HTML + strategi konten</td><td>Rp 7–12 jt</td><td>5–10 hari</td></tr>
+      <tr><td><strong>Premium</strong></td><td>Standard + pendampingan 1 bulan + review bulanan</td><td>Rp 15–25 jt</td><td>1 bulan</td></tr>
+      <tr><td><strong>Retainer</strong></td><td>Konsultasi ongoing, update strategi, Q&A</td><td>Rp 5–10 jt/bln</td><td>Ongoing</td></tr>
+      <tr class="hl"><td colspan="4">💡 Mulai dengan paket Standard — paling balance antara nilai dan effort</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="font-size:13px;font-weight:600;color:var(--ink2);text-transform:uppercase;letter-spacing:.08em;margin:1.5rem 0 .75rem">Template kontrak kerja sama</h3>
+  <div class="kontrak-box">
+    <h4>PERJANJIAN KERJA SAMA KONSULTASI BISNIS</h4>
+    <p style="font-size:12px;color:var(--ink3);margin-bottom:.75rem">Nomor: ADC/[TAHUN]/[NO]</p>
+    <p>Perjanjian ini dibuat dan ditandatangani oleh:</p><br>
+    <p><strong>Pihak Pertama (Konsultan):</strong><br>
+    Nama: Milzon<br>
+    Identitas: Architecture Design Concept<br>
+    Di bawah: PT Allanray Teknologi Semesta<br>
+    Selanjutnya disebut <strong>"KONSULTAN"</strong></p><br>
+    <p><strong>Pihak Kedua (Klien):</strong><br>
+    Nama/Perusahaan: _______________<br>
+    Alamat: _______________<br>
+    Selanjutnya disebut <strong>"KLIEN"</strong></p><br>
+    <p><strong>Pasal 1 — Ruang Lingkup Pekerjaan</strong><br>
+    KONSULTAN setuju untuk memberikan layanan Architecture Design Concept yang mencakup:<br>
+    □ Perancangan ekosistem bisnis digital<br>
+    □ Dokumen konsep & strategi<br>
+    □ Interactive tools & dashboard<br>
+    □ Roadmap eksekusi [sesuai paket yang dipilih]</p><br>
+    <p><strong>Pasal 2 — Biaya & Pembayaran</strong><br>
+    Total biaya: Rp _______________ <br>
+    Pembayaran: 50% di muka, 50% setelah deliverable diterima<br>
+    Rekening: _______________</p><br>
+    <p><strong>Pasal 3 — Waktu Pengerjaan</strong><br>
+    Pekerjaan dimulai: ___/___/2026<br>
+    Target selesai: ___/___/2026<br>
+    Revisi: maksimal 2 kali tanpa biaya tambahan</p><br>
+    <p><strong>Pasal 4 — Kerahasiaan</strong><br>
+    Kedua pihak sepakat untuk menjaga kerahasiaan informasi bisnis yang dibagikan selama proses konsultasi berlangsung.</p><br>
+    <p><strong>Pasal 5 — Hak Kekayaan Intelektual</strong><br>
+    Seluruh konsep, dokumen, dan tools yang diserahkan menjadi milik KLIEN setelah pembayaran lunas. KONSULTAN berhak menggunakan proyek ini sebagai portofolio (tanpa data sensitif klien).</p><br>
+    <p>Dibuat di: _______________<br>
+    Tanggal: _______________</p><br>
+    <p>Pihak Pertama &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pihak Kedua<br>
+    <br>
+    (_______________) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (_______________)<br>
+    Milzon / Konsultan &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Klien</p>
+  </div>
+
+  <h3 style="font-size:13px;font-weight:600;color:var(--ink2);text-transform:uppercase;letter-spacing:.08em;margin:1.5rem 0 .75rem">Dokumen lain yang perlu disiapkan</h3>
+  <div class="cards">
+    <div class="card" style="--card-accent:#C85A2A;--card-bg:#F5EDE8" onclick="toggleDetail(this,'dok_proposal')">
+      <div class="card-icon">📋</div>
+      <h3>Template proposal</h3>
+      <p>Untuk closing klien baru</p>
+      <span class="card-arrow">›</span>
+    </div>
+    <div class="card" style="--card-accent:#2A7A6A;--card-bg:#E2F2EE" onclick="toggleDetail(this,'dok_invoice')">
+      <div class="card-icon">🧾</div>
+      <h3>Format invoice</h3>
+      <p>Tagihan profesional</p>
+      <span class="card-arrow">›</span>
+    </div>
+    <div class="card" style="--card-accent:#D4A24A;--card-bg:#FBF4E5" onclick="toggleDetail(this,'dok_portofolio')">
+      <div class="card-icon">🗂</div>
+      <h3>Portofolio</h3>
+      <p>Case study skincare ini</p>
+      <span class="card-arrow">›</span>
+    </div>
+    <div class="card" style="--card-accent:#6A3A8A;--card-bg:#F0E8F8" onclick="toggleDetail(this,'dok_legalitas_pt')">
+      <div class="card-icon">🏛</div>
+      <h3>Legalitas PT/CV</h3>
+      <p>Dokumen badan usaha</p>
+      <span class="card-arrow">›</span>
+    </div>
+  </div>
+  <div id="detail-kontrak" class="detail" style="display:none"></div>
+</div>
+
+<!-- FASHION GEN Z -->
+<div id="sec-fashion" class="section">
+  <div class="section-header">
+    <div class="section-num">No. 4 — Fashion Gen Z</div>
+    <div class="section-title">Ekosistem brand Allan & Ray</div>
+    <div class="section-desc">Brand fashion Gen Z yang dikelola oleh anak kamu sebagai direktur — di bawah holding PT Allanray Teknologi Semesta.</div>
+  </div>
+
+  <div class="sum-card">
+    <h3>Konsep Brand: Allan & Ray</h3>
+    <p>Brand fashion lokal Gen Z dengan identitas kuat — urban, authentic, dan relevan. Nama "Allan & Ray" sudah punya cerita personal yang powerful sebagai brand story.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">Gen Z</div><div class="stat-label">Target utama 16–28 th</div></div>
+      <div class="stat"><div class="stat-val">Rp 3–8 jt</div><div class="stat-label">Modal awal minimum</div></div>
+      <div class="stat"><div class="stat-val">TikTok</div><div class="stat-label">Channel utama</div></div>
+      <div class="stat"><div class="stat-val">Urban</div><div class="stat-label">Aesthetic positioning</div></div>
+    </div>
+  </div>
+
+  <h3 style="font-size:13px;font-weight:600;color:var(--ink2);text-transform:uppercase;letter-spacing:.08em;margin:1.5rem 0 .75rem">Brand concept</h3>
+  <div class="lev-item l1"><div class="lev-icon">🏷</div><div><div class="lev-title">Nama: Allan & Ray</div><div class="lev-desc">Tagline usulan: "Wear Your Story" atau "Born Different, Dress Different" — authentic, personal, kuat.</div></div></div>
+  <div class="lev-item l2"><div class="lev-icon">🎯</div><div><div class="lev-title">Positioning: Urban Casual Indonesia</div><div class="lev-desc">Antara streetwear dan casual — bukan high fashion, bukan fast fashion murahan. Sweet spot Gen Z yang mau tampil stylish tapi tetap terjangkau.</div></div></div>
+  <div class="lev-item l3"><div class="lev-icon">💰</div><div><div class="lev-title">Price range: Rp 89.000 – 299.000</div><div class="lev-desc">Kaos Rp 89–129rb, kemeja/outer Rp 149–199rb, aksesori Rp 35–89rb. Accessible tapi tidak murahan.</div></div></div>
+  <div class="lev-item l4"><div class="lev-icon">🎨</div><div><div class="lev-title">Aesthetic: Monochrome + earth tones</div><div class="lev-desc">Palet warna hitam, putih, krem, coklat, olive, abu — timeless, mudah di-mix match, cocok konten foto.</div></div></div>
+  <div class="lev-item l5"><div class="lev-icon">✨</div><div><div class="lev-title">Differentiator: Limited drops</div><div class="lev-desc">Produksi terbatas per desain → scarcity effect → hype organik. Model ini jauh lebih efektif dari stok massal untuk brand baru.</div></div></div>
+
+  <h3 style="font-size:13px;font-weight:600;color:var(--ink2);text-transform:uppercase;letter-spacing:.08em;margin:1.5rem 0 .75rem">Supplier fashion lokal</h3>
+  <div class="cards">
+    <div class="card" style="--card-accent:#C85A2A;--card-bg:#F5EDE8" onclick="toggleDetail(this,'supplier_konveksi')">
+      <div class="card-icon">🧵</div>
+      <h3>Konveksi lokal</h3>
+      <p>Custom produksi sendiri</p>
+      <span class="card-arrow">›</span>
+    </div>
+    <div class="card" style="--card-accent:#2A7A6A;--card-bg:#E2F2EE" onclick="toggleDetail(this,'supplier_distro')">
+      <div class="card-icon">📦</div>
+      <h3>Distro & grosir</h3>
+      <p>Reseller tanpa produksi</p>
+      <span class="card-arrow">›</span>
+    </div>
+    <div class="card" style="--card-accent:#D4A24A;--card-bg:#FBF4E5" onclick="toggleDetail(this,'supplier_impor')">
+      <div class="card-icon">🌏</div>
+      <h3>Import / thrift</h3>
+      <p>Barang unik, margin tinggi</p>
+      <span class="card-arrow">›</span>
+    </div>
+    <div class="card" style="--card-accent:#6A3A8A;--card-bg:#F0E8F8" onclick="toggleDetail(this,'fashion_channel')">
+      <div class="card-icon">📱</div>
+      <h3>Channel & konten</h3>
+      <p>TikTok, IG, strategi</p>
+      <span class="card-arrow">›</span>
+    </div>
+  </div>
+  <div id="detail-fashion" class="detail" style="display:none"></div>
+
+  <h3 style="font-size:13px;font-weight:600;color:var(--ink2);text-transform:uppercase;letter-spacing:.08em;margin:1.5rem 0 .75rem">Roadmap Allan & Ray</h3>
+  <div class="tl">
+    <div class="tl-item">
+      <div class="tl-dot">1</div>
+      <div class="tl-content">
+        <div class="tl-phase">Bulan 1 — Persiapan</div>
+        <div class="tl-title">Brand setup & produksi pertama</div>
+        <div class="tl-body">Daftarkan nama merek, buat akun IG & TikTok brand, cari 2–3 konveksi untuk sample, desain 3–5 motif/model pertama, foto produk aesthetic, siapkan 15 konten pre-launch.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot done">2</div>
+      <div class="tl-content">
+        <div class="tl-phase">Bulan 2 — Soft Launch</div>
+        <div class="tl-title">Drop pertama — limited 50–100 pcs</div>
+        <div class="tl-body">Announce "Drop 001" di sosmed, buat hype lewat countdown stories, kirim ke 5–10 nano KOL Gen Z untuk review, buka pre-order 7 hari, produksi setelah demand terkonfirmasi.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot gold">3</div>
+      <div class="tl-content">
+        <div class="tl-phase">Bulan 3–4 — Optimasi</div>
+        <div class="tl-title">Analisis & Drop 002</div>
+        <div class="tl-body">Cek produk mana yang paling diminati, perbaiki kualitas foto & konten, tambah TikTok Shop, mulai iklan Rp 50rb/hari, siapkan drop kedua berdasarkan feedback.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot purple">4</div>
+      <div class="tl-content">
+        <div class="tl-phase">Bulan 5–6 — Scale</div>
+        <div class="tl-title">Community & kolaborasi</div>
+        <div class="tl-body">Bangun komunitas Discord/WA, kolaborasi dengan brand lokal lain (cross-promo), pertimbangkan pop-up di event anak muda, ekspansi ke Shopee & Tokopedia.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-size:13px;font-weight:600;color:var(--ink2);text-transform:uppercase;letter-spacing:.08em;margin:1.5rem 0 .75rem">Struktur holding</h3>
+  <div class="flow-step"><div class="flow-num fn-blue">🏛</div><div class="flow-content"><h4>PT Allanray Teknologi Semesta — Holding</h4><p>Manajemen strategis, keuangan konsolidasi, keputusan investasi antar entitas.</p></div></div>
+  <div class="flow-con">↓ membawahi</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:10px;margin-top:8px">
+    <div class="flow-step"><div class="flow-num fn-teal">🧴</div><div class="flow-content"><h4>Entitas 1 — Skincare</h4><p>UMKM / PT Perorangan. Brand skincare yang sedang dibangun. Dikelola kamu atau tim yang dipercaya.</p></div></div>
+    <div class="flow-step"><div class="flow-num fn-orange">👗</div><div class="flow-content"><h4>Entitas 2 — Allan & Ray</h4><p>PT Perorangan / CV. Brand fashion Gen Z. Direktur: anak kamu. Independent tapi di bawah holding.</p></div></div>
+    <div class="flow-step"><div class="flow-num fn-gold">💼</div><div class="flow-content"><h4>Entitas 3 — Konsultan</h4><p>Architecture Design Concept. Jual jasa ekosistem bisnis ke klien luar. Revenue stream ketiga.</p></div></div>
+  </div>
+</div>
+
+</div><!-- end main -->
+
+<footer class="footer">
+  <strong>Panduan Bisnis Skincare & Fashion — Allan & Ray</strong>
+  <div style="color:rgba(255,255,255,.5);font-size:13px;margin:.5rem 0 .25rem">Dirancang & dikonsep oleh</div>
+  <div style="color:rgba(255,255,255,.85);font-size:15px;font-family:'DM Serif Display',serif;margin-bottom:.25rem">Milzon — Architecture Design Concept</div>
+  <div class="copy">© 2026 Milzon · Architecture Design Concept · All rights reserved</div>
+  <div class="copy" style="margin-top:.25rem">PT Allanray Teknologi Semesta · Dokumen internal · Draft v1.0</div>
+</footer>
+
+<script>
+const details = {
+  dok_perusahaan:{
+    title:"Dokumen legalitas perusahaan",section:"izin",
+    items:[
+      {label:"Akta Pendirian PT/CV",val:"Dari notaris",note:"Biaya Rp 2–5 jt via notaris. Untuk PT Perorangan (UU Cipta Kerja), bisa lebih murah Rp 1–2 jt."},
+      {label:"SK Kemenkumham",val:"Pengesahan badan hukum",note:"Untuk PT, harus disahkan Kemenkumham. Proses otomatis via notaris + OSS."},
+      {label:"NIB",val:"oss.go.id — gratis",note:"Nomor Induk Berusaha. KBLI yang relevan: 20232 (industri kosmetik), 46441 (perdagangan kosmetik), 47991 (e-commerce)."},
+      {label:"NPWP Badan",val:"KPP setempat atau online",note:"Wajib untuk penerbitan invoice, buka rekening bisnis, dan pengajuan izin lain."},
+      {label:"Rekening bisnis",val:"BCA/Mandiri/BRI atas nama PT",note:"Pisahkan keuangan bisnis dan pribadi dari awal. Ini penting untuk laporan keuangan dan kredibilitas."},
+    ],
+    badges:["b-orange|PT Perorangan = paling simpel","b-blue|NIB = kunci semua izin lain"]
+  },
+  dok_bpom:{
+    title:"Dokumen untuk notifikasi BPOM",section:"izin",
+    items:[
+      {label:"Formula produk lengkap",val:"Dari supplier/pabrik maklon",note:"Daftar semua bahan (INCI name), konsentrasi, dan fungsinya. Pabrik maklon biasanya sudah punya ini."},
+      {label:"CoA (Certificate of Analysis)",val:"Per bahan baku",note:"Sertifikat analisis dari supplier bahan baku. Membuktikan kemurnian dan keamanan bahan."},
+      {label:"Sertifikat GMP pabrik",val:"Dari pabrik maklon",note:"Good Manufacturing Practice. Ini yang paling penting — pastikan pabrik punya ini sebelum deal."},
+      {label:"Label/kemasan final",val:"Desain yang akan diproduksi",note:"Harus mencantumkan: nama produk, nama & alamat produsen, nomor batch, tanggal kedaluwarsa, cara pakai, peringatan, komposisi."},
+      {label:"Dokumen safety assessment",val:"Bisa dari pabrik",note:"Bukti bahwa formula sudah diuji aman. Biasanya sudah included dalam layanan pabrik maklon bereputasi."},
+    ],
+    badges:["b-green|GMP pabrik = dokumen utama","b-teal|Label sesuai regulasi wajib"]
+  },
+  dok_halal:{
+    title:"Dokumen sertifikasi halal",section:"izin",
+    items:[
+      {label:"Daftar bahan baku lengkap",val:"Beserta asal-usulnya",note:"Setiap bahan harus bisa dibuktikan kehalalannya. Bahan hewani perlu dokumen tambahan."},
+      {label:"Sertifikat halal supplier",val:"Dari setiap supplier bahan",note:"Minta ke supplier bahan baku. Jika supplier tidak punya, cari supplier lain atau pabrik yang sudah full halal."},
+      {label:"SOP proses produksi",val:"Dari pabrik maklon",note:"Prosedur produksi yang memastikan tidak ada kontaminasi dari bahan non-halal."},
+      {label:"Sertifikat halal pabrik",val:"Nilai tambah besar",note:"Jika pabrik maklon sudah punya sertifikat halal, proses sertifikasi produkmu jadi jauh lebih cepat dan murah."},
+    ],
+    badges:["b-gold|Halal = nilai jual besar","b-green|Pilih pabrik yang sudah halal"]
+  },
+  dok_merek:{
+    title:"Pendaftaran merek HKI",section:"izin",
+    items:[
+      {label:"Formulir permohonan",val:"Online di merek.dgip.go.id",note:"Isi data pemohon, nama merek, kelas barang/jasa, dan deskripsi merek."},
+      {label:"Logo/wordmark merek",val:"File JPG/PNG resolusi tinggi",note:"Merek yang didaftarkan bisa berupa nama saja, logo saja, atau kombinasi keduanya."},
+      {label:"Kelas yang didaftarkan",val:"Kelas 3 (kosmetik)",note:"Kelas 3 mencakup: sabun, kosmetik, parfum, shampoo, lotion, dll. Biaya Rp 1,6 jt/kelas (UMKM) atau Rp 1,8 jt (umum)."},
+      {label:"Bukti penggunaan merek",val:"Jika merek sudah dipakai",note:"Foto produk, kemasan, atau screenshot toko online. Memperkuat posisi jika ada sengketa merek."},
+    ],
+    badges:["b-orange|Daftar SECEPATNYA","b-blue|First to file = yang menang","b-teal|Kelas 3 untuk kosmetik"]
+  },
+  dok_proposal:{
+    title:"Template proposal penawaran",section:"kontrak",
+    items:[
+      {label:"Halaman 1 — Cover",val:"Nama klien + judul proyek",note:"Profesional dan personal. Cantumkan logo ADC, nama klien, tanggal, dan nomor proposal."},
+      {label:"Halaman 2 — Profil",val:"Siapa kamu & track record",note:"Cerita singkat ADC, case study skincare ini sebagai bukti, foto/visual yang meyakinkan."},
+      {label:"Halaman 3 — Problem & Solution",val:"Masalah klien + solusi kamu",note:"Tunjukkan bahwa kamu mengerti masalah mereka, lalu jelaskan bagaimana ekosistem bisnis yang kamu rancang menyelesaikannya."},
+      {label:"Halaman 4 — Deliverable",val:"Apa yang mereka dapat",note:"Rincikan setiap dokumen, tools, dan deliverable yang akan diterima. Spesifik = kepercayaan naik."},
+      {label:"Halaman 5 — Timeline & Harga",val:"Jadwal + investasi",note:"Tampilkan 2–3 opsi paket dengan harga berbeda. Beri rekomendasi paket yang paling sesuai kebutuhan."},
+    ],
+    badges:["b-orange|Proposal = closing tool","b-blue|Case study = bukti terkuat"]
+  },
+  dok_invoice:{
+    title:"Format invoice profesional",section:"kontrak",
+    items:[
+      {label:"Header invoice",val:"Logo + nama perusahaan",note:"PT Allanray Teknologi Semesta / Architecture Design Concept + alamat + NPWP + no. rekening."},
+      {label:"Nomor invoice",val:"Format: ADC/2026/001",note:"Nomor berurutan membantu tracking dan terlihat profesional. Simpan rekam jejaknya."},
+      {label:"Detail layanan",val:"Rincian per item",note:"Jangan cuma tulis 'jasa konsultasi' — rincikan: dokumen ekosistem bisnis, interactive tools, roadmap, dll."},
+      {label:"Termin pembayaran",val:"Net 7 atau Net 14",note:"Cantumkan batas waktu pembayaran. 50% DP di awal, 50% setelah selesai adalah standar konsultan."},
+      {label:"Metode pembayaran",val:"Transfer bank + QRIS",note:"Cantumkan nomor rekening, nama bank, nama pemilik. Tambahkan QRIS untuk kemudahan klien."},
+    ],
+    badges:["b-teal|Invoice profesional = branding","b-green|NPWP wajib dicantumkan"]
+  },
+  dok_portofolio:{
+    title:"Membangun portofolio konsultan",section:"kontrak",
+    items:[
+      {label:"Case study #1 — Skincare",val:"Proyek ini sendiri",note:"Dokumentasi proses: dari concept, ekosistem, tools yang dibuat, hingga hasil setelah dijalankan. Ini adalah portofolio pertama yang paling powerful."},
+      {label:"Case study #2 — Fashion",val:"Allan & Ray",note:"Brand fashion Gen Z yang kamu bangun. Dokumentasi brand concept, roadmap, dan perkembangannya."},
+      {label:"Format portofolio",val:"PDF + website/link",note:"Buat PDF 1 halaman per case study, plus landing page sederhana di GitHub Pages atau Notion sebagai portofolio online."},
+      {label:"Metrik yang ditampilkan",val:"Angka nyata",note:"Setelah 2–3 bulan berjalan: berapa omset, berapa follower bertumbuh, berapa order. Angka > cerita."},
+    ],
+    badges:["b-orange|Case study nyata = paling kuat","b-blue|Angka = kepercayaan"]
+  },
+  dok_legalitas_pt:{
+    title:"Legalitas badan usaha untuk konsultan",section:"kontrak",
+    items:[
+      {label:"Opsi 1 — Di bawah PT Allanray",val:"Divisi / unit bisnis",note:"Paling simpel. Jual jasa konsultasi atas nama PT Allanray. Tidak perlu buat entitas baru, tapi semua revenue masuk PT yang sama."},
+      {label:"Opsi 2 — PT Perorangan baru",val:"Rp 1–2 jt via notaris",note:"UU Cipta Kerja memungkinkan PT dengan 1 pendiri. Pisahkan liability & pajak dari PT Allanray. Cocok jika skala konsultasi berkembang besar."},
+      {label:"Opsi 3 — CV",val:"Rp 500rb–1 jt",note:"Lebih mudah & murah dari PT. Cukup untuk skala konsultan individual. Pajak lebih simpel."},
+      {label:"Rekomendasi",val:"Mulai dari PT Allanray dulu",note:"Jual jasa atas nama PT Allanray yang sudah ada. Hemat waktu & biaya. Pisahkan ke entitas baru setelah revenue konsultasi sudah stabil."},
+    ],
+    badges:["b-green|Mulai dari PT Allanray","b-orange|Pisah entitas saat skala besar"]
+  },
+  supplier_konveksi:{
+    title:"Konveksi lokal — produksi sendiri",section:"fashion",
+    items:[
+      {label:"Bandung — pusat konveksi",val:"Cimahi, Cigondewah, Kiaracondong",note:"Kota terbesar untuk konveksi fashion lokal. Harga paling kompetitif, pilihan paling banyak. Bisa kunjungi langsung untuk quality check."},
+      {label:"Jakarta — Tanah Abang & Cipadu",val:"Grosir + konveksi",note:"Tanah Abang untuk beli jadi (reseller). Cipadu Tangerang untuk konveksi custom. Harga sedikit lebih tinggi dari Bandung."},
+      {label:"Cara cari konveksi",val:"Instagram + Tokopedia + referral",note:"Search: 'jasa konveksi kaos custom Bandung', 'konveksi baju Gen Z'. Minta sampel dulu sebelum order massal."},
+      {label:"MOQ konveksi lokal",val:"12–24 pcs per desain/warna",note:"Rata-rata konveksi minta min. 12 pcs per warna. Mulai dengan 2–3 desain × 2 warna = 48–72 pcs total untuk drop pertama."},
+      {label:"Harga produksi",val:"Kaos Rp 25–50rb/pcs",note:"Tergantung bahan, sablon, dan finishing. Jual Rp 89–129rb → margin 60–70%. Pastikan cek bahan quality control."},
+    ],
+    badges:["b-orange|Bandung = pusat konveksi","b-green|MOQ rendah = cocok pemula"]
+  },
+  supplier_distro:{
+    title:"Distro & grosir — reseller tanpa produksi",section:"fashion",
+    items:[
+      {label:"Model reseller distro",val:"Beli putus dari brand lain",note:"Beli produk dari brand distro lokal (Bandung, Jakarta), jual dengan margin. Tidak perlu produksi, tapi brand bukan milikmu sepenuhnya."},
+      {label:"Grosir Tanah Abang",val:"Harga mulai Rp 20rb/pcs",note:"Untuk fashion casual, kaos, celana. Beli 6–12 pcs per model. Cocok untuk tes pasar sebelum produksi sendiri."},
+      {label:"Supplier online",val:"Orami, Faire, IndoTrading",note:"Platform B2B untuk cari supplier fashion wholesale. Bisa nego harga dan MOQ. Lebih mudah tanpa harus ke pasar fisik."},
+      {label:"Rekomendasi untuk Allan & Ray",val:"Hybrid: produksi + reseller",note:"Produksi sendiri untuk hero item (kaos signature, outer), reseller untuk aksesoris (topi, tas, dompet) → modal lebih efisien."},
+    ],
+    badges:["b-teal|Hybrid = paling efisien","b-blue|Tes pasar dulu dengan reseller"]
+  },
+  supplier_impor:{
+    title:"Import & thrift — diferensiasi",section:"fashion",
+    items:[
+      {label:"Thrift / preloved",val:"Margin sangat tinggi",note:"Beli baju bekas branded dari pasar loak atau vendor thrift (Rp 10–30rb), jual Rp 89–199rb. Sangat trending di Gen Z. Sustainable angle kuat."},
+      {label:"Import China via 1688",val:"Harga produksi sangat murah",note:"1688.com (versi grosir Alibaba) untuk cari bahan atau produk jadi. Perlu freight forwarder. MOQ bisa rendah tapi ada biaya import."},
+      {label:"Import Korea",val:"Kualitas lebih premium",note:"Korean fashion sangat disukai Gen Z Indonesia. Cari lewat Coupang, Naver SmartStore, atau agen sourcing Korea di Tokopedia."},
+      {label:"Pertimbangan import",val:"Pajak & waktu",note:"Bea masuk 15–20% + PPN 11%. Waktu pengiriman 7–21 hari. Cocok untuk item hero/statement piece, bukan untuk fast-moving basic."},
+    ],
+    badges:["b-gold|Thrift = margin tertinggi","b-purple|Korean fashion = trend Gen Z"]
+  },
+  fashion_channel:{
+    title:"Channel & konten fashion Gen Z",section:"fashion",
+    items:[
+      {label:"TikTok — primary channel",val:"OOTD, styling, haul, behind scenes",note:"Format terbaik: 'outfit of the day', 'how to style', 'thrift haul', 'behind the brand'. Posting 5x/minggu minimum. Direktur (anak kamu) bisa jadi wajah brand."},
+      {label:"Instagram — brand building",val:"Aesthetic feed + stories",note:"Foto produk dengan konsistensi visual kuat. Dark & moody atau clean minimalist — pilih satu dan konsisten. Reels untuk reach, stories untuk engagement."},
+      {label:"TikTok Shop + Shopee",val:"Jualan langsung dari konten",note:"Tag produk di setiap video. Aktifkan live selling 2x seminggu. Shopee untuk volume & jangkauan lebih luas."},
+      {label:"Leverage: komunitas Gen Z",val:"Discord, grup WA, event offline",note:"Bangun komunitas loyal di Discord atau Telegram. Adakan pop-up di kampus atau event anak muda. Word of mouth Gen Z sangat kuat."},
+    ],
+    badges:["b-orange|TikTok = engine utama","b-teal|Konten authentic > polished"]
+  }
+};
+
+function showSection(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('sec-'+id).classList.add('active');
+  event.currentTarget.classList.add('active');
+  window.scrollTo({top:document.querySelector('.nav-strip').offsetTop-10,behavior:'smooth'});
+  document.querySelectorAll('.detail').forEach(d=>{d.style.display='none';d.innerHTML=''});
+  document.querySelectorAll('.card').forEach(c=>c.classList.remove('open'));
+}
+
+function toggleDetail(card,key){
+  const d=details[key];
+  if(!d)return;
+  const sectionId='detail-'+d.section;
+  const detailEl=document.getElementById(sectionId);
+  const isOpen=card.classList.contains('open');
+  document.querySelectorAll('.card').forEach(c=>c.classList.remove('open'));
+  if(detailEl){detailEl.style.display='none';detailEl.innerHTML=''}
+  if(isOpen)return;
+  card.classList.add('open');
+  let html=`<div class="detail-header"><h3>${d.title}</h3><button class="detail-close" onclick="closeDetail('${d.section}')">Tutup ✕</button></div><div class="detail-body"><div class="items-grid">`;
+  d.items.forEach(i=>{html+=`<div class="d-item"><div class="d-item-label">${i.label}</div><div class="d-item-val">${i.val}</div><div class="d-item-note">${i.note}</div></div>`});
+  html+=`</div>`;
+  if(d.badges){html+=`<div class="badges">`;d.badges.forEach(b=>{const[cls,txt]=b.split('|');html+=`<span class="badge ${cls}">${txt}</span>`});html+=`</div>`}
+  html+=`</div>`;
+  detailEl.innerHTML=html;
+  detailEl.style.display='block';
+  detailEl.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function closeDetail(section){
+  const el=document.getElementById('detail-'+section);
+  if(el){el.style.display='none';el.innerHTML=''}
+  document.querySelectorAll('.card').forEach(c=>c.classList.remove('open'));
+}
+</script>
+</body>
+</html>
